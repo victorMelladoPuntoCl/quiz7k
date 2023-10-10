@@ -1,0 +1,59 @@
+/* Reset general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Establecer una fuente base para evitar problemas de tamaño de fuente heredados */
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Reset de listas */
+  ul, ol {
+    list-style: none;
+  }
+  
+  /* Eliminar márgenes y relleno en elementos principales */
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilos de enlace básicos */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Asegurar que las imágenes sean responsivas y no desborden su contenedor */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Agrega más estilos de reset según sea necesario */
+  
+  /* Establece un estilo de cursor predeterminado para el cursor del mouse */
+  html, body {
+    cursor: default;
+  }
+  
+  /* Evitar que los elementos de formulario hereden estilos no deseados */
+  button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    margin: 0;
+  }
+  
+  /* Evitar que los elementos de formulario tengan bordes adicionales */
+  button, input {
+    border: none;
+    outline: none;
+  }
+  
+  /* Añade más estilos de reset según tus necesidades */
+
+  
+  

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/base.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+</head>
+
+<body>
+  <!-- Contenedor principal del slider -->
+  <div id="carrusel"class="swiper">
+    <div class="head">
+      <ul class="activity-label">
+        <li>ACTIVIDAD 1</li>
+        <li class="l2">PREGUNTA 1</li>
+      </ul>
+    </div>
+    <!-- Contenedor adicional requerido -->
+    <div class="swiper-wrapper">
+      <!-- Diapositivas -->
+
+
+      <div class="swiper-slide">
+        <!------- PREGUNTA ------->
+        <article class="activm quiz" id="question-1">
+          <div class="prompt">
+            <h2>¿Cuál de las siguientes alternativas son las contraindicaciones en la Reflexología?</h2>
+            <p>Selecciona una o más opciones.</p>
+          </div>
+          <form class="question-options">
+
+            <label>
+              <input type="checkbox" name="option1" value="0">
+              <p>Durante el embarazo</p>
+            </label>
+
+            <label><input type="checkbox" name="option2" value="1">
+              <p>En caso de hongos, heridas o cualquier tipo de erupción</p>
+            </label>
+            <label><input type="checkbox" name="option3" value="1">
+              <p>En enfermedades en estado febril elevado.</p>
+            </label>
+            <label><input type="checkbox" name="option4" value="0">
+              <p>Parálisis</p>
+            </label>
+          </form>
+
+          <div class="slide-ft">
+            <button type="submit">Enviar</button>
+            <div class="spacer"></div>
+          </div>
+
+        </article>
+      </div>
+
+      <!------- SLIDE ------->
+      <div class="swiper-slide">
+        
+        <article class="activm quiz" id="question-2">
+
+          <div class="prompt">
+            <h2>¿La Reflexología que enseñamos no es más que…?</h2>
+            <p>Selecciona una o más opciones.</p>
+          </div>
+
+          <ul class="question-options">
+            <li><label><input type="checkbox" name="option1" value="0">Una terapia complementaria a las indicaciones del
+                médico.</label></li>
+            <li><label><input type="checkbox" name="option2" value="1">Es una alternativa a la automedicación.</label>
+            </li>
+            <li><label><input type="checkbox" name="option3" value="1">Trabajamos con la homeostasis.</label></li>
+            <li><label><input type="checkbox" name="option4" value="1">Tiene un efecto benéfico sobre todas las partes
+                del cuerpo.</label></li>
+          </ul>
+
+          <div class="slide-ft">
+            <button type="submit">Enviar</button>
+          </div>
+
+        </article>
+      </div>
+
+
+    </div>
+    <!-- Si necesitamos la paginación -->
+    <div class="swiper-pagination"></div>
+    <!-- Si necesitamos botones de navegación -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <!-- Si necesitamos una barra de desplazamiento -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+
+
+  <script>
+
+
+const swiper = new Swiper('#carrusel', {
+
+// Optional parameters
+direction: 'horizontal',
+loop: true,
+
+// If we need pagination
+pagination: {
+  el: '.swiper-pagination',
+},
+
+// Navigation arrows
+navigation: {
+  nextEl: '.swiper-button-next',
+  prevEl: '.swiper-button-prev',
+},
+
+// And if we need scrollbar
+scrollbar: {
+  el: '.swiper-scrollbar',
+},
+});
+
+
+  </script>
+</body>
+
+</html>

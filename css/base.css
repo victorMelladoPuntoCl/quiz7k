@@ -1,0 +1,106 @@
+@import url(reset.css);
+
+/*default.css => estilo default epc*/
+@import url(default.css);
+@import url(multiple-choice.css);
+
+
+/* Esquema de colores */
+:root {
+
+  --claro: #8ba3db;
+  --medio: #506BA8;
+  --oscuro: #214982;
+
+  --color-fondo: var(--medio);
+  --background: var(--oscuro);
+
+
+  --fondo-resaltado: var(--claro);
+
+  --resaltado-checkboxes: var(--claro);
+  --hover-botones: var(--claro);
+
+  
+  --form-control-color: #f2f6ff;
+  --form-background: 
+}
+
+
+.spacer{
+  width:100%;
+  height:20vh;
+  display:block;
+  background-color:gray;
+}
+
+.swiper {
+    width: 100%;
+    height:100vh;
+    background-color:var(--color-fondo);
+  }
+
+/*NAV izquierda derecha*/
+
+:root{
+ --swiper-navigation-top-offset:25vh;
+
+}
+.swiper-button-next::after{
+ border:red thin dotted;
+}
+
+
+/*Animaciones*/
+  @keyframes entrada-izquierda {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+
+/* CABECERA DEL SLIDER*/
+  .swiper .head{
+    position:absolute;
+    width:100%;
+    padding:0;
+    margin-top:20px;
+  }
+
+  .swiper .head ul{
+    padding:0;
+    margin:0;
+
+  }
+  .swiper .head li{
+    display:inline-block;
+    background-color:white;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin:0;
+    padding:10px 30px;
+    animation: entrada-izquierda 1s ease;
+  }
+  .swiper .head li.l2{
+    background-color: var(--oscuro);
+    color:white;
+    position:absolute;
+    left:0;
+    z-index:-1;
+    padding-left:200px;
+    animation: entrada-izquierda 2s ease;
+  }
+
+  .swiper-slide{
+    padding: 70px 0px;
+  }
+
+/*Estilos de la sección de prompt*/
+.prompt h1, .prompt h2, .prompt p {
+  color:white;
+}
