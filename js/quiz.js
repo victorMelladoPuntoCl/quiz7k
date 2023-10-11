@@ -5,7 +5,6 @@ const evalAnswer = (questionId, answer) => {
   return result;
 };
 
-
 function captureSubmitEvents() {
     const forms = document.querySelectorAll('form'); // Selecciona todos los formularios de la página
   
@@ -20,23 +19,6 @@ function captureSubmitEvents() {
       });
     });
   }
-  
-export { evalAnswer, captureSubmitEvents};
 
 
-/* estado */
-
-const appState = {
-    currentQuestion: 1,
-    correctAnswers: 0,
-    answersState: [0, 0, 0, 0, 0], // Array to store the state of answers
-  };
-  
-  // Update the app state
-  appState.currentQuestion = 2;
-  appState.correctAnswers++;
-  appState.answersState[1] = 1; // Mark the second question as answered correctly
-  
-  console.log(appState.currentQuestion); // Prints 2
-  console.log(appState.correctAnswers); // Prints 1
-  console.log(appState.answersState); // Prints [0, 1, 0, 0, 0]
+  export { evalAnswer, captureSubmitEvents};
