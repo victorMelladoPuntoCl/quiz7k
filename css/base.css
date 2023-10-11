@@ -61,6 +61,18 @@ body{
     }
   }
 
+  /*Animaciones*/
+  @keyframes entrada-abajo {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
 /*SLIDER (SWIPER)*/
 /*NAV izquierda derecha*/
 
@@ -118,6 +130,7 @@ body{
     padding:10px 30px;
     animation: entrada-izquierda 1s ease;
   }
+
   .swiper .head li.l2{
     background-color: var(--oscuro);
     color:white;

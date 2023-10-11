@@ -29,6 +29,7 @@
       <div class="swiper-slide">
 
         <!------- PREGUNTA ------->
+
         <article class="activm quiz" id="question-1">
           <div class="prompt">
             <div class="prompt-content">
@@ -36,42 +37,44 @@
             <p>Selecciona una o más opciones.</p>
           </div>
           </div>
-          <form class="question-options" action="">
+
+          <form id="quizForm" class="question-options quiz-form" action="">
             <span class="deco-top"></span>
-            <span class="deco-top-claro"></span>
+
 
             <div class="quiz-option">
               <label>
-                <p><input type="checkbox" name="option" value="0"></p>
+                <p><input type="checkbox" name="opt1" value="incorrect"></p>
                 <div class="txt"><p>Durante el embarazo lte el embarazo lte el embarazo lte el embarazo lternativas sonrnativas son las contraindicaciones en la Reflexol las contraindicaciones en la Reflexol</p></div>
               </label>
             </div>
 
             <div class="quiz-option">
               <label>
-                <p><input type="checkbox" name="option2" value="0"></p>
+                <p><input type="checkbox" name="opt2" value="correct"></p>
                 <div class="txt"><p>Durante el embarazo</p></div>
               </label>
             </div>
 
             <div class="quiz-option">
               <label>
-                <p><input type="checkbox" name="option3" value="0"></p>
+                <p><input type="checkbox" name="opt3" value="correct"></p>
                 <div class="txt"><p>Durante el embarazo</p></div>
               </label>
             </div>
 
             <div class="quiz-option">
               <label>
-                <p><input type="checkbox" name="option4" value="0"></p>
+                <p><input type="checkbox" name="opt4" value="correct"></p>
                 <div class="txt"><p>Durante el embarazo</p></div>
               </label>
             </div>
+            
             <div class="slide-ft">
               <button type="submit">ENVIAR</button>
             </div>
-  
-           
+            
+
           </form>
 
           
@@ -139,7 +142,7 @@
 
     </div>
     <!-- Si necesitamos la paginación -->
-    <div class="swiper-pagination"></div>
+    <!--<div class="swiper-pagination"></div>-->
     
     <!-- Si necesitamos botones de navegación -->
     <!--
@@ -147,13 +150,11 @@
     <div class="swiper-button-next"></div>
     -->
     <!-- Si necesitamos una barra de desplazamiento -->
-    <div class="swiper-scrollbar"></div>
+    <!--<div class="swiper-scrollbar"></div>-->
 
-
-    <div id="dialog">
-      <h1></h1>
-    </div>
   </div>
+  <div class="feedback-box correct"><p>¡Correcto!</p><button class="btn">Continuar</button></div>
+  <div class="feedback-box incorrect"><p>¡Incorrecto!</p><button class="btn">Continuar</button></div>
 
   <script src="js/main.js" type="module">
   </script>
