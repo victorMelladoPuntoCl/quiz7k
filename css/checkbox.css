@@ -1,25 +1,6 @@
 
 /*CHECKBOX*/
 
-.quiz label{
-  position:relative;
-  display: table;
-}
-
-
-.quiz label .txt{
-margin-left:3em;
-position:absolute;
-top:0;
-display:table;
-height:100%;
-width:100%;
-}
-
-.quiz label .txt p{
-  display:table-cell;
-  vertical-align:middle;
-}
 
 input[type="checkbox"] {
   /* Add if not using autoprefixer */
