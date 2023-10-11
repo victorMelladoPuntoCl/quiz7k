@@ -1,0 +1,21 @@
+
+/* Esquema de colores */
+:root {
+
+    --claro: #E4EEF4;
+    --medio: #506BA8;
+    --oscuro: #214982;
+  
+    --color-fondo: var(--medio);
+    --background: var(--oscuro);
+  
+    --fondo-resaltado: var(--medio);
+  
+    --resaltado-checkboxes: var(--claro);
+    --hover-botones: var(--claro);
+   
+    --form-control-color: #f2f6ff;
+    --form-background: var(--claro);
+  
+  }
+  

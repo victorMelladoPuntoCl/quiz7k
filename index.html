@@ -27,65 +27,115 @@
 
 
       <div class="swiper-slide">
+
         <!------- PREGUNTA ------->
         <article class="activm quiz" id="question-1">
           <div class="prompt">
+            <div class="prompt-content">
             <h2>¿Cuál de las siguientes alternativas son las contraindicaciones en la Reflexología?</h2>
             <p>Selecciona una o más opciones.</p>
           </div>
+          </div>
           <form class="question-options">
+            <span class="deco-top"></span>
+            <span class="deco-top-claro"></span>
 
-            <label>
-              <input type="checkbox" name="option1" value="0">
-              <p>Durante el embarazo</p>
-            </label>
+            <div class="quiz-option">
+              <label>
+                <p><input type="checkbox" name="option4" value="0"></p>
+                <div class="txt"><p>Durante el embarazo</p></div>
+              </label>
+            </div>
 
-            <label><input type="checkbox" name="option2" value="1">
-              <p>En caso de hongos, heridas o cualquier tipo de erupción</p>
-            </label>
-            <label><input type="checkbox" name="option3" value="1">
-              <p>En enfermedades en estado febril elevado.</p>
-            </label>
-            <label><input type="checkbox" name="option4" value="0">
-              <p>Parálisis</p>
-            </label>
+            <div class="quiz-option">
+              <label>
+                <p><input type="checkbox" name="option4" value="0"></p>
+                <div class="txt"><p>Durante el embarazo</p></div>
+              </label>
+            </div>
+
+            <div class="quiz-option">
+              <label>
+                <p><input type="checkbox" name="option4" value="0"></p>
+                <div class="txt"><p>Durante el embarazo</p></div>
+              </label>
+            </div>
+
+            <div class="quiz-option">
+              <label>
+                <p><input type="checkbox" name="option4" value="0"></p>
+                <div class="txt"><p>Durante el embarazo</p></div>
+              </label>
+            </div>
+
+           
           </form>
 
           <div class="slide-ft">
-            <button type="submit">Enviar</button>
-            <div class="spacer"></div>
+            <button type="submit">ENVIAR</button>
           </div>
 
         </article>
+        
       </div>
 
-      <!------- SLIDE ------->
-      <div class="swiper-slide">
-        
-        <article class="activm quiz" id="question-2">
 
+
+
+      <div class="swiper-slide">
+
+        <!------- PREGUNTA ------->
+        <article class="activm quiz" id="question-1">
           <div class="prompt">
-            <h2>¿La Reflexología que enseñamos no es más que…?</h2>
+            <div class="prompt-content">
+            <h2>¿Cuál de las siguientes alternativas son las contraindicaciones en la Reflexología?</h2>
             <p>Selecciona una o más opciones.</p>
           </div>
+          </div>
+          <form class="question-options">
+            <span class="deco-top"></span>
+            <span class="deco-top-claro"></span>
 
-          <ul class="question-options">
-            <li><label><input type="checkbox" name="option1" value="0">Una terapia complementaria a las indicaciones del
-                médico.</label></li>
-            <li><label><input type="checkbox" name="option2" value="1">Es una alternativa a la automedicación.</label>
-            </li>
-            <li><label><input type="checkbox" name="option3" value="1">Trabajamos con la homeostasis.</label></li>
-            <li><label><input type="checkbox" name="option4" value="1">Tiene un efecto benéfico sobre todas las partes
-                del cuerpo.</label></li>
-          </ul>
+            <div class="quiz-option">
+              <label>
+                <p><input type="checkbox" name="option4" value="0"></p>
+                <div class="txt"><p>Durante el embarazo</p></div>
+              </label>
+            </div>
+
+            <div class="quiz-option">
+              <label>
+                <p><input type="checkbox" name="option4" value="0"></p>
+                <div class="txt"><p>Durante el embarazo</p></div>
+              </label>
+            </div>
+
+            <div class="quiz-option">
+              <label>
+                <p><input type="checkbox" name="option4" value="0"></p>
+                <div class="txt"><p>Durante el embarazo</p></div>
+              </label>
+            </div>
+
+            <div class="quiz-option">
+              <label>
+                <p><input type="checkbox" name="option4" value="0"></p>
+                <div class="txt"><p>Durante el embarazo</p></div>
+              </label>
+            </div>
+
+           
+          </form>
 
           <div class="slide-ft">
-            <button type="submit">Enviar</button>
+            <button type="submit">ENVIAR</button>
           </div>
 
         </article>
+        
       </div>
 
+      
 
     </div>
     <!-- Si necesitamos la paginación -->
@@ -95,34 +145,16 @@
     <div class="swiper-button-next"></div>
     <!-- Si necesitamos una barra de desplazamiento -->
     <div class="swiper-scrollbar"></div>
+
+
+    <div id="dialog">
+      <h1></h1>
+    </div>
   </div>
 
 
-  <script>
+  <script src="js/main.js">
 
-
-const swiper = new Swiper('#carrusel', {
-
-// Optional parameters
-direction: 'horizontal',
-loop: true,
-
-// If we need pagination
-pagination: {
-  el: '.swiper-pagination',
-},
-
-// Navigation arrows
-navigation: {
-  nextEl: '.swiper-button-next',
-  prevEl: '.swiper-button-prev',
-},
-
-// And if we need scrollbar
-scrollbar: {
-  el: '.swiper-scrollbar',
-},
-});
 
 
   </script>

@@ -1,31 +1,23 @@
 @import url(reset.css);
+@import url(colors.css);
+@import url(classes.css);
 
-/*default.css => estilo default epc*/
-@import url(default.css);
-@import url(multiple-choice.css);
+@import url(checkbox.css);
 
+/*General*/
 
-/* Esquema de colores */
-:root {
+body{
+  background-color:var(--oscuro);
+}
+.quiz {
 
-  --claro: #8ba3db;
-  --medio: #506BA8;
-  --oscuro: #214982;
-
-  --color-fondo: var(--medio);
-  --background: var(--oscuro);
-
-
-  --fondo-resaltado: var(--claro);
-
-  --resaltado-checkboxes: var(--claro);
-  --hover-botones: var(--claro);
-
-  
-  --form-control-color: #f2f6ff;
-  --form-background: 
 }
 
+#carrusel{
+  min-width:320px;
+  max-width:950px;
+  min-height:950px;
+}
 
 .spacer{
   width:100%;
@@ -40,15 +32,8 @@
     background-color:var(--color-fondo);
   }
 
-/*NAV izquierda derecha*/
 
-:root{
- --swiper-navigation-top-offset:25vh;
 
-}
-.swiper-button-next::after{
- border:red thin dotted;
-}
 
 
 /*Animaciones*/
@@ -62,7 +47,53 @@
       opacity: 1;
     }
   }
-  
+
+  /*Animaciones*/
+  @keyframes entrada-derecha {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+/*SLIDER (SWIPER)*/
+/*NAV izquierda derecha*/
+
+:root{
+  --swiper-navigation-top-offset:25vh;
+  --swiper-navigation-sides-offset:0;
+  --swiper-navigation-size: 10vh;
+ 
+ }
+ 
+ .swiper-button-next, .swiper-button-prev{
+   background-color:var(--oscuro);
+   margin:0;
+   border-radius:50px;
+   height:15vh;
+ }
+ 
+ .swiper-button-prev{
+   background-color:var(--oscuro);
+   margin:0;
+   border-radius:0 50px 50px 0;
+ }
+ 
+ .swiper-button-next{
+   background-color:var(--oscuro);
+   margin:0;
+   border-radius:50px 0 0 50px;
+ }
+ 
+ .swiper-button-next:after, .swiper-button-prev:after{
+   font-size: 5vh;
+ }
+ 
+ 
 
 /* CABECERA DEL SLIDER*/
   .swiper .head{
@@ -100,7 +131,119 @@
     padding: 70px 0px;
   }
 
+
+  
+/*PROMPT*/
 /*Estilos de la sección de prompt*/
 .prompt h1, .prompt h2, .prompt p {
   color:white;
+}
+
+.prompt {
+    position:relative;
+    display:table;
+    z-index:20;
+    height:40vh;
+    padding: 20px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.prompt-content{
+  display: table-cell;
+  vertical-align:middle;
+  background-color:rgba(0,0,0,0.2);
+  border-radius: 20px;
+  height:100%;
+  padding:30px;
+}
+
+
+/*AREA DE RESPUESTA*/
+/*área del form*/
+
+.question-options {
+    background-color:var(--form-background);
+    position:relative;
+}
+
+.question-options .deco-top{
+
+  box-sizing: border-box;
+  display:block;
+  
+  position:absolute;
+  top:-300px;
+
+  z-index:-5;
+  height:50%;
+  width:100%;
+  background: url(../img/paper-bkg.png) bottom repeat-x; 
+  background-size:auto 100px;
+}
+
+.question-options .deco-top-claro{
+  box-sizing: border-box;
+  display:block;
+  
+  position:absolute;
+  top:-100px;
+
+  height:100px;
+  width:100%;
+  background: url(../img/corte-claro.png) top repeat-x; 
+  background-size: auto 100px;
+}
+
+
+/* general para los botones de opcion*/
+
+label p{
+  left:110px;
+}
+
+.quiz-option{
+  border:red thin dotted;
+}
+
+.quiz .question-options label {
+    position:relative;
+    display: block;
+    font-size: 1em;
+    color: white;
+    background-color: var(--oscuro);
+    margin: 10px 20px;
+    padding: 20px 50px;
+    border-radius:50px;
+    height:80px;
+    animation: entrada-derecha 1s ease-out;
+
+}
+
+.quiz .question-options label:hover::before{
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ffee10;
+}
+
+.quiz .question-options label:hover {
+  background-color: var(--fondo-resaltado);
+  transition: .5s;
+}
+
+
+/*Footer*/
+
+.slide-ft {
+  text-align:center;
+  margin:0;
+  padding:0;
+    
+}
+button[type="submit"]{
+  color:var(--form-control-color);
+  font-size:30px;
+  padding:10px;
+  border-radius: 50px;
+  background-color: var(--oscuro);
+  
 }
