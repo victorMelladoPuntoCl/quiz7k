@@ -151,6 +151,5 @@ button[type="submit"], .btn{
   border-top-right-radius: 50px;
   border-top-left-radius: 50px;
   animation: entrada-abajo 1s;
-  animation-timing-function: ease-out;
-
+  display:none;
 }
