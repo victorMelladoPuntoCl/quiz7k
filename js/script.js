@@ -1,5 +1,6 @@
 import {myQuestions} from "/js/quizdata.js"; //contenido del cuestionario.
-import{nextSlide,prevSlide,updateSlide} from "/js/slideControl.js"
+import{nextSlide,prevSlide,updateSlide} from "/js/slideControl.js";
+import{tp_multipleChoice} from "/js/quizTemplates.js";
 
 let currentPosition =0;
 let userAnswers = [];
@@ -22,26 +23,7 @@ function buildQuestion(myQuestions) {
         newSlide.className = 'slide '+'question-'+index;
         newSlide.setAttribute('data-slide', index);
 
-        newSlide.innerHTML = `
-            <div><h2>${question.question}</h2></div>
-            <div class="quiz-form-container">
-            </div>
-                <form id="${index}" class="question-options">
-                    <span class="deco-top"></span>
-                    <ul>
-                        ${Object.entries(question.answers).map(([key, answer]) => `
-                            <li><label for="${key}">
-                                <input type="${question.questionType === 'single-choice' ? 'radio' : 'checkbox'}" id="${key}" name="answers" value="${key}">
-                                <p>${answer}</p>
-                                </label>
-                            </li>
-                        `).join('')}
-                    </ul>
-                    <button type="submit">COMPROBAR</button>
-                </form>
-
-
-        `;
+        newSlide.innerHTML = tp_multipleChoice({ question, index });
 
         console.log (question);
         console.log (index);

@@ -1,7 +1,9 @@
 
 const myQuestions = [
     {
-        question: "¿de qué color es la naranja?",
+        questionID:"1",
+        questionType: "multiple-choice",
+        question: "Las respuestas correctas son: verde y azul.",
         answers: {
             a: "verde",
             b: "azul",
@@ -10,14 +12,15 @@ const myQuestions = [
 
         },
         correctAnswers: ["a", "b"],
-        questionType: "multiple-choice",
         lastIntentCheck:{
-            correct: [a,b];
-            incorrect: [];
-            questionResult: [correct]
+            correct: ["a","b"],
+            incorrect: [],
+            questionResult: ["correct"]
         }
     },
     {
+        questionID:"2",
+        questionType: "single-choice",
         question: "¿de qué color es el plátano?",
         answers: {
             a: "verde",
@@ -26,40 +29,29 @@ const myQuestions = [
             d: "amarillo"
         },
         correctAnswers: ["b"],
-        questionType: "single-choice"
+        lastIntentCheck:{
+            correct: ["a","b"],
+            incorrect: [],
+            questionResult: ["correct"]
+        }
     },
     {
-        question: "¿de qué color es el plátano?2",
+        questionID:"3",
+        questionType: "single-choice",
+        question: "Son correctas: Pera y Manzana",
         answers: {
-            a: "verde",
-            b: "azul",
-            c: "naranja",
-            d: "amarillo"
+            a: "Pera",
+            b: "Trigo",
+            c: "Manzana",
+            d: "Leche"
         },
-        correctAnswers: ["b"],
-        questionType: "single-choice"
-    },
-    {
-        question: "¿de qué color es el plátano?",
-        answers: {
-            a: "verde",
-            b: "azul",
-            c: "naranja",
-            d: "amarillo"
-        },
-        correctAnswers: ["b"],
-        questionType: "single-choice"
-    },
-    {
-        question: "¿de qué color es el plátano?4",
-        answers: {
-            a: "verde",
-            b: "azul",
-            c: "naranja",
-            d: "amarillo"
-        },
-        correctAnswers: ["b"],
-        questionType: "single-choice"
+        correctAnswers: ["a","c"],
+        lastIntentCheck:{
+            correct: ["a","b"],
+            incorrect: [],
+            questionResult: ["correct"]
+        }
+
     },
     // Agrega más preguntas aquí
 ];
