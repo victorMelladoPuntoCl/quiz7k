@@ -84,9 +84,10 @@ function buildQuestion(myQuestions, currentQuestion) {
                     <span class="deco-top-claro"></span>
                     <ul>
                         ${Object.entries(question.answers).map(([key, answer]) => `
-                            <li>
+                            <li><label for="${key}">
                                 <input type="${question.questionType === 'single-choice' ? 'radio' : 'checkbox'}" id="${key}" name="answers" value="${key}">
-                                <label for="${key}">${answer}</label>
+                                ${answer}
+                                </label>
                             </li>
                         `).join('')}
                     </ul>

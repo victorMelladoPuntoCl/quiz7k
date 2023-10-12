@@ -46,9 +46,12 @@ p.checkbox-container {
 }
 
 .question-options label {
+  display:flex;
+  align-items:center;
+  
   z-index: 22;
   position: relative;
-  display: block;
+
   font-size: 1em;
   color: white;
   background-color: var(--oscuro);
@@ -57,41 +60,39 @@ p.checkbox-container {
   animation: entrada-derecha 1s ease-out;
 }
 
-.quiz .question-options label:hover::before {
+.question-options label:hover::before {
   transform: scale(1.1);
   box-shadow: 0 0 15px #ffee10;
 }
 
-.quiz .question-options label:hover,
+.question-options label:hover,
 button[type="submit"]:hover,
 .btn:hover {
   background-color: var(--fondo-resaltado);
   transition: .5s;
 }
 
-.quiz .question-options label:active,
+.question-options label:active,
 button[type="submit"]:active,
 .btn:active {
   transform: scale(0.95);
   transition: .5s;
 }
 
-.quiz label {}
 
-.quiz label .txt {
+
+label .txt {
   margin-left: 3em;
-  position: absolute;
   top: 0;
   width: 100%;
   max-width: 80%;
-  height: 100%;
-  vertical-align: middle;
+
 }
 
-.quiz label .txt p {
+label .txt p {
   background-color: red;
   height: 100%;
-  vertical-align: middle;
+
 }
 
 
