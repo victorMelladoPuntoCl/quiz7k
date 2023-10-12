@@ -57,13 +57,14 @@ body {
 }
 
 
-/*sliderd*/
+/*slider*/
 
 .slider-container {
     display: flex;
     overflow: hidden;
     min-width: 360px;
     max-width: 850px;
+    min-height:240px;
     /* Ajusta el ancho según tus necesidades */
     margin: 0 auto;
 }
