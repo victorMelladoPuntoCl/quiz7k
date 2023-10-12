@@ -10,7 +10,12 @@ const myQuestions = [
 
         },
         correctAnswers: ["a", "b"],
-        questionType: "multiple-choice"
+        questionType: "multiple-choice",
+        lastIntentCheck:{
+            correct: [a,b];
+            incorrect: [];
+            questionResult: [correct]
+        }
     },
     {
         question: "¿de qué color es el plátano?",
@@ -35,7 +40,7 @@ const myQuestions = [
         questionType: "single-choice"
     },
     {
-        question: "¿de qué color es el plátano?3",
+        question: "¿de qué color es el plátano?",
         answers: {
             a: "verde",
             b: "azul",

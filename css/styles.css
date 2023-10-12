@@ -87,3 +87,31 @@ body {
     border:red thin dotted;
 }
 
+
+.prompt h1, .prompt h2, .prompt p {
+    color:white;
+  }
+
+
+  /*Area del prompt, contenido de la pregunta*/
+  
+  .prompt {
+      position:relative;
+      display:table;
+      z-index:20;
+      height:40vh;
+      padding: 20px;
+      text-align: center;
+      line-height: 30px;
+  }
+  
+  .prompt-content{
+    display: table-cell;
+    vertical-align:middle;
+    border-radius: 20px;
+    height:100%;
+    padding:30px;
+  
+    animation: entrada-derecha 1s ease;
+  }
+  
