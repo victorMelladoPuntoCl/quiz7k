@@ -5,12 +5,18 @@
 .question-options {
   background-color: var(--form-background);
   position: relative;
+  
 
 }
 
 .question-options ul{
   position:relative;
   z-index:20;
+  padding:0 20px 0 20px;
+}
+
+.question-options ul li{
+  margin:0 0 20px 0;
 }
 
 .question-options .deco-top {
@@ -32,6 +38,7 @@
   width: 100%;
   background: url(../img/corte-claro.png) top repeat-x;
   background-size: auto 100px;
+  
 }
 
 /* general para los botones de opcion*/
@@ -59,6 +66,10 @@ p.checkbox-container {
   border-radius: 50px;
   animation: entrada-derecha 1s ease-out;
 }
+.question-options label p {
+  margin-left:20px;
+}
+
 
 .question-options label:hover::before {
   transform: scale(1.1);
@@ -80,20 +91,6 @@ button[type="submit"]:active,
 }
 
 
-
-label .txt {
-  margin-left: 3em;
-  top: 0;
-  width: 100%;
-  max-width: 80%;
-
-}
-
-label .txt p {
-  background-color: red;
-  height: 100%;
-
-}
 
 
 /*Footer*/

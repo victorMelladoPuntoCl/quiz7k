@@ -5,7 +5,9 @@ const myQuestions = [
             a: "verde",
             b: "azul",
             c: "naranja",
-            d: "anaranjada"
+            d: "anaranjada",
+            e: "anaranjada",
+            f: "anaranjada"
         },
         correctAnswers: ["a", "b"],
         questionType: "multiple-choice"
@@ -79,22 +81,37 @@ function buildQuestion(myQuestions, currentQuestion) {
             
             <div class="quiz-form-container" >
                 
-                <form class="question-options">
+                <form id="${currentQuestion}" class="question-options">
                     <span class="deco-top"></span>
-                    <span class="deco-top-claro"></span>
                     <ul>
                         ${Object.entries(question.answers).map(([key, answer]) => `
                             <li><label for="${key}">
                                 <input type="${question.questionType === 'single-choice' ? 'radio' : 'checkbox'}" id="${key}" name="answers" value="${key}">
-                                ${answer}
+                                <p>${answer}</p>
                                 </label>
                             </li>
                         `).join('')}
                     </ul>
-                    <button type="submit">COMPROBAR</button>
+                    <button type="submit" >COMPROBAR</button>
                 </form>
             </div>
         `;
+
+         // Agregar un evento "submit" a cada formulario
+         const form = slide.querySelector('form');
+         form.addEventListener('submit', function (event) {
+             event.preventDefault(); // Evitar que el formulario se envíe
+             const formData = new FormData(form);
+             // Aquí puedes acceder a los valores del formulario en "formData"
+             // Por ejemplo, si deseas obtener el valor de una pregunta específica:
+             const selectedAnswers = formData.getAll('answers');
+             console.log(selectedAnswers);
+         });
+
+
+
+
+
     });
 }
 
