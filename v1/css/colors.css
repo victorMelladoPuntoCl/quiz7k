@@ -6,20 +6,16 @@
     --medio: #506BA8;
     --oscuro: #214982;
   
-    --background-1: var(--oscuro);
-    --background-2: var(--medio);
-    --background-3: var(--light);
-
     --color-fondo: var(--medio);
+    --background: var(--oscuro);
+  
     --fondo-resaltado: var(--medio);
   
     --resaltado-checkboxes: var(--claro);
     --hover-botones: var(--claro);
-
+   
     --form-control-color: #f2f6ff;
-    --form-background: white;  
-
-
+    --form-background: white;
   
   }
   

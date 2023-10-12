@@ -1,0 +1,56 @@
+@keyframes entrada-izquierda {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  /*Animaciones*/
+  @keyframes entrada-derecha {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+
+
+
+
+  body  {
+    z-index:-233;
+      background-image: url('../img/bkg-9@2x-80.jpg');
+    background-size:cover;
+          -webkit-animation: slidein 100s;
+          animation: slidein 100s;
+  
+          -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  
+          -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  
+          -webkit-animation-direction: alternate;
+          animation-direction: alternate;              
+  }
+  
+  @-webkit-keyframes slidein {
+  from {background-position: top; background-size:100%; }
+  to {background-position: -100px 0px;background-size:150%;}
+  }
+  
+  @keyframes slidein {
+  from {background-position: top;background-size:100%; }
+  to {background-position: -100px 0px;background-size:150%;}
+  
+  }
+  
+  

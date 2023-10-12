@@ -1,0 +1,88 @@
+@import url(animation.css);
+@import url(colors.css);
+@import url(checkbox.css);
+@import url(radio.css);
+@import url(quiz-buttons.css);
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+html,
+body {
+    background-color: var(--background-1);
+    font-family: sans-serif;
+}
+
+
+/*HEAD*/
+/* CABECERA DEL SLIDER*/
+
+.head {
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.head ul {
+    padding: 0;
+    margin: 0;
+
+}
+
+.head li {
+    position: absolute;
+    display: inline-block;
+    background-color: white;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin: 0;
+    padding: 10px 30px;
+    animation: entrada-izquierda 1s ease;
+    z-index: 999;
+}
+
+.head li.l2 {
+    background-color: var(--oscuro);
+    color: white;
+    position: absolute;
+    left: 0;
+    padding-left: 200px;
+    animation: entrada-izquierda 2s ease;
+    z-index: 998;
+}
+
+
+/*sliderd*/
+
+.slider-container {
+    display: flex;
+    overflow: hidden;
+    min-width: 360px;
+    max-width: 850px;
+    /* Ajusta el ancho según tus necesidades */
+    margin: 0 auto;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    height:100vh;
+    flex-direction:row;
+}
+
+.slide {
+    flex: 0 0 100%;
+    display:flex;
+    flex-direction: column; /* Orientación vertical */
+    justify-content: space-between;
+}
+
+.slide div{
+    border:red thin dotted;
+}
+
