@@ -1,6 +1,7 @@
 import {myQuestions} from "/js/quizdata.js"; //contenido del cuestionario.
+import{nextSlide,prevSlide,updateSlide} from "/js/slideControl.js"
 
-let currentQuestion = 0;
+let currentPosition =0;
 let userAnswers = [];
 
 //objetos para manipular el DOM
@@ -11,20 +12,21 @@ const nextButton = document.getElementById('next');
 
 //Constructor de preguntas
 //
-function buildQuestion(myQuestions, currentQuestion) {
-    slides.forEach((slide, index) => {
-        const question = myQuestions[currentQuestion];
-        slide.innerHTML = `
-            <div class="" data-question=""${currentQuestion}>
-            </div>
 
-            <div>
-            <h2>${question.question}</h2>
+function buildQuestion(myQuestions) {
+    
+    //recorrer el objeto
+    myQuestions.forEach(function(question,index){
+
+        let newSlide = document.createElement("div");
+        newSlide.className = 'slide '+'question-'+index;
+        newSlide.setAttribute('data-slide', index);
+
+        newSlide.innerHTML = `
+            <div><h2>${question.question}</h2></div>
+            <div class="quiz-form-container">
             </div>
-            
-            <div class="quiz-form-container" >
-                
-                <form id="${currentQuestion}" class="question-options">
+                <form id="${index}" class="question-options">
                     <span class="deco-top"></span>
                     <ul>
                         ${Object.entries(question.answers).map(([key, answer]) => `
@@ -37,37 +39,28 @@ function buildQuestion(myQuestions, currentQuestion) {
                     </ul>
                     <button type="submit">COMPROBAR</button>
                 </form>
-            </div>
+
+
         `;
 
-         // Agregar un evento "submit" a cada formulario
-         const form = slide.querySelector('form');
-         form.addEventListener('submit', function (event) {
-             event.preventDefault(); // Evitar que el formulario se envíe
-             const formData = new FormData(form);
-             // Aquí puedes acceder a los valores del formulario en "formData"
-             // Por ejemplo, si deseas obtener el valor de una pregunta específica:
-             const selectedAnswers = formData.getAll('answers');
-             console.log(selectedAnswers);
-         });
+        console.log (question);
+        console.log (index);
+        slider.appendChild(newSlide);
 
-    });
+    }); //termina forEach
 }
 
-buildQuestion(myQuestions, currentQuestion);
+buildQuestion(myQuestions);
+console.log("Iniciado. currentPosition : "+currentPosition);
 
-prevButton.addEventListener('click', () => {
-    if (currentQuestion > 0) {
-        currentQuestion--;
-        buildQuestion(myQuestions, currentQuestion);
-        slider.style.transform = `translateX(-${currentQuestion * 100}%)`;
-    }
+// navegar
+
+nextButton.addEventListener('click', function() {
+    currentPosition = nextSlide(myQuestions, currentPosition, slider);
+    console.log("nextSlide terminado. currentPosition : "+currentPosition);
 });
 
-nextButton.addEventListener('click', () => {
-    if (currentQuestion < myQuestions.length - 1) {
-        currentQuestion++;
-        buildQuestion(myQuestions, currentQuestion);
-        slider.style.transform = `translateX(-${currentQuestion * 100}%)`;
-    }
+prevButton.addEventListener('click', function() {
+    currentPosition = prevSlide(myQuestions, currentPosition, slider);
+    console.log("nextSlide terminado. currentPosition : "+ currentPosition);
 });

@@ -1,4 +1,4 @@
-let currentQuestion = 0;
+let currentPosition = 0;
 
 const myQuestions = [
     {
@@ -25,8 +25,8 @@ const myQuestions = [
         }
     ];
 
-function buildQuestion (myQuestions, currentQuestion){
+function buildQuestion (myQuestions, currentPosition){
 
-    // poblar el div principal con el contenido de la pregunta actual usando los datos de myQuestions[currentQuestion].
+    // poblar el div principal con el contenido de la pregunta actual usando los datos de myQuestions[currentPosition].
 
 }
