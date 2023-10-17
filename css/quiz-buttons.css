@@ -79,6 +79,14 @@ button[type="submit"], .btn {
   transition: all 0.2s;
 }
 
+label:has(> input.incorrect) {
+  background-color:lightcoral;
+}
+
+label:has(> input.correct) {
+  background-color:lightgreen;
+}
+
 .active{
   border:#ffee10;
 }
