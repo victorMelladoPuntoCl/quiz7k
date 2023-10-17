@@ -1,4 +1,3 @@
-
 const myQuestions = [
     {
         questionID:"1",
@@ -28,7 +27,7 @@ const myQuestions = [
             c: "naranja",
             d: "amarillo"
         },
-        correctAnswers: ["b"],
+        correctAnswers: ["d"],
         lastIntentCheck:{
             correct: ["a","b"],
             incorrect: [],
@@ -37,7 +36,7 @@ const myQuestions = [
     },
     {
         questionID:"3",
-        questionType: "single-choice",
+        questionType: "multiple-choice",
         question: "Son correctas: Pera y Manzana",
         answers: {
             a: "Pera",

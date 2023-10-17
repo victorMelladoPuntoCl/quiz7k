@@ -1,47 +1,105 @@
-/**
- * Compara las respuestas del usuario con las respuestas correctas de una pregunta y devuelve un objeto con el resultado.
- *
- * @param {Array} questionAnswers - Las respuestas de la pregunta.
- * @param {Array} userAnswers - Las respuestas del usuario.
- * @param {Array} correctAnswers - Las respuestas correctas.
- * @returns {Object} - Un objeto con las respuestas correctas, incorrectas y el resultado de la pregunta.
- *
- * @example
- * const result = checkAnswers(["a", "b", "c", "d"], ["b"], ["a", "b"]);
- * console.log("Resultado de la pregunta:", result.questionResult);
- * console.log("Respuestas Correctas:", result.correct);
- * console.log("Respuestas Incorrectas:", result.incorrect);
- */
+import{nextSlide,prevSlide,updateSlide} from "/js/slideControl.js";
+//Función que recibe un array de respuestas, un array de respuestas correctas y devuelve un objeto con las respuestas correctas, 
+//incorrectas y el resultado de la pregunta.
 
-function checkAnswers(questionAnswers, userAnswers, correctAnswers) {
-    const correct = [];
-    const incorrect = [];
+function checkAnswers(event, myQuestions, userAnswers, currentPosition) {
 
-    for (let i = 0; i < questionAnswers.length; i++) {
-        if (userAnswers.includes(questionAnswers[i])) {
-            if (correctAnswers.includes(questionAnswers[i])) {
-                correct.push(questionAnswers[i]);
-            }
-        } else if (correctAnswers.includes(questionAnswers[i])) {
-            incorrect.push(questionAnswers[i]);
+    console.log('event, myQuestions, userAnswers, currentPosition');
+    console.dir(event); //evento que se ha enviado
+    console.dir(myQuestions); //array de preguntas
+    console.dir('UserAnswers:'+userAnswers); //array de respuestas del usuario
+    console.dir(currentPosition);
+    console.log('Correct Answers:'+myQuestions[currentPosition].correctAnswers);
+    let form = event.target;
+    let questionID = form.querySelector('input[name="questionID"]').value;
+
+    let correct = [];
+    let incorrect = [];
+    let questionResult = '';
+
+    //Si el array de preguntas correctas es igual al de las respuestas del usuario, entonces es correcto
+    if (JSON.stringify(myQuestions[currentPosition].correctAnswers) === JSON.stringify(userAnswers)) {
+        correct.push(currentPosition);
+        questionResult = 'Correcto';
+    }
+    else {
+        incorrect.push(currentPosition);
+        questionResult = 'Incorrecto';
+    }
+
+
+    // Recorremos el formulario para obtener los valores de los inputs
+    form.querySelectorAll('input').forEach(input => {
+        //si el valor del input está checked, y coincide con alguno de los elementos de correctAnswers, aplicar la clase "correct"
+        if (input.checked && myQuestions[currentPosition].correctAnswers.includes(input.value)) {
+            input.classList.add('correct');
         }
-    }
+        //si el valor del input está checked, y no coincide con alguno de los elementos de correctAnswers, aplicar la clase "incorrect"
+        else if (input.checked && !myQuestions[currentPosition].correctAnswers.includes(input.value)) {
+            input.classList.add('incorrect');
+        }
 
-    let questionResult = "correct";
-    if (correct.length < correctAnswers.length || incorrect.length > 0) {
-        questionResult = "incorrect";
-    }
+        //si el valor del input no está checked, y coincide con alguno de los elementos de correctAnswers, aplicar la clase "incorrect"
+        else if (!input.checked && myQuestions[currentPosition].correctAnswers.includes(input.value)) {
+            input.classList.add('incorrect');
+        }
+      
+    });
 
+
+
+    
+
+    
+
+
+    //Arma el objeto con los resultados
     const result = {
         correct,
         incorrect,
         questionResult,
     };
 
-    console.log("Resultado:", result);
-    
-        console.log("Resultado de la pregunta:", result.questionResult);
-        console.log("Respuestas Correctas:", result.correct);
-        console.log("Respuestas Incorrectas:", result.incorrect);
+    console.log("Objeto de Resultado:", result);
+    showFeedback(result);
+
     return result;
 }
+
+
+function addResultClass(result) {
+
+
+}
+
+function showFeedback(result) {
+
+    
+    let options = document.querySelectorAll('.option'); //array con todos los elementos del form
+
+    let correctAnswers = result.correct; //obtener un array con todas las respuestas correctas del usuario, desde el objeto result
+
+    // añadir a cada opción la class 'correct' si coincide con alguno de los elementos de correctAnswers
+    options.forEach(option => {
+        if (correctAnswers.includes(option.value)) {
+            option.classList.add('correct');
+        }
+    });
+
+
+
+    let feedback = document.querySelector('.feedback');
+    feedback.classList.remove('hidden');
+    feedback.querySelector('.feedback-text').textContent = result.questionResult;
+
+
+
+}
+
+function hideFeedback() {
+    let feedback = document.querySelector('.feedback');
+    feedback.classList.add('hidden');
+}
+
+
+export {checkAnswers};

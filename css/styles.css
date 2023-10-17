@@ -17,6 +17,17 @@ body {
     font-family: sans-serif;
 }
 
+.center{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+
+.hidden{
+    display:none;
+    transition: 0.5s all;
+}
 
 /*HEAD*/
 /* CABECERA DEL SLIDER*/
@@ -115,3 +126,77 @@ body {
     animation: entrada-derecha 1s ease;
   }
   
+/*AREA DE RESPUESTA QUIZ*/
+
+/*FONDO*/
+
+.question-options {
+    background-color: var(--form-background);
+    position: relative;
+  }
+  
+  .question-options ul{
+    position:relative;
+    z-index:20;
+    padding:0 20px 0 20px;
+  }
+  
+  .question-options ul li{
+    margin:0 0 20px 0;
+  }
+  
+  .question-options .deco-top {
+    height: 200px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: -70px;
+    background: url(../img/paper-bkg.png) top repeat-x;
+    background-size: auto 200px;
+  }
+  
+  .question-options .deco-top-claro {
+    display: block;
+    position: absolute;
+    bottom:0;
+    height: 100px;
+    width: 100%;
+    background: url(../img/corte-claro.png) top repeat-x;
+    background-size: auto 100px;
+    
+  }
+  
+
+  /* Feedback */
+
+  .feedback {
+    /* Posicionamiento */
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    
+    /* Tamaño y apariencia */
+    width: 100vw;
+    max-width: 960px;
+    min-height: 20vh;
+    background-color: white;
+    border: thin solid gray;
+    border-radius: 40px 40px 0 0;
+    padding: 1em;
+    
+    /* Animaciones y transiciones */
+    animation: entrada-inferior;
+    transition: 0.5s all;
+    
+    /* Otros */
+    z-index: 100;
+
+  }
+  .correct{
+    background-color: green!important;
+  }
+
+  .incorrect{
+    background-color: red;
+  }
