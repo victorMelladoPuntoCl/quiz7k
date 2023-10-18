@@ -1,4 +1,6 @@
+import { getState, setState, subscribe} from "/js/state.js";
 import{nextSlide,prevSlide,updateSlide} from "/js/slideControl.js";
+
 //Función que recibe un array de respuestas, un array de respuestas correctas y devuelve un objeto con las respuestas correctas, 
 //incorrectas y el resultado de la pregunta.
 
@@ -21,6 +23,7 @@ function checkAnswers(event, myQuestions, userAnswers, currentPosition) {
     if (JSON.stringify(myQuestions[currentPosition].correctAnswers) === JSON.stringify(userAnswers)) {
         correct.push(currentPosition);
         questionResult = 'Correcto';
+
     }
     else {
         incorrect.push(currentPosition);

@@ -52,6 +52,60 @@ const myQuestions = [
         }
 
     },
+    {
+        questionID:"4",
+        questionType: "multiple-choice",
+        question: "Son correctas: Pera y Manzana",
+        answers: {
+            a: "Pera",
+            b: "Trigo",
+            c: "Manzana",
+            d: "Leche"
+        },
+        correctAnswers: ["a","c"],
+        lastIntentCheck:{
+            correct: ["a","b"],
+            incorrect: [],
+            questionResult: ["correct"]
+        }
+
+    },
+    {
+        questionID:"5",
+        questionType: "multiple-choice",
+        question: "Son correctas: Pera y Manzana",
+        answers: {
+            a: "Pera",
+            b: "Trigo",
+            c: "Manzana",
+            d: "Leche"
+        },
+        correctAnswers: ["a","c"],
+        lastIntentCheck:{
+            correct: ["a","b"],
+            incorrect: [],
+            questionResult: ["correct"]
+        }
+
+    },
+    {
+        questionID:"6",
+        questionType: "feedback-slide",
+        question: "---",
+        answers: {
+            a: "-",
+            b: "-o",
+            c: "-",
+            d: "-"
+        },
+        correctAnswers: ["-","-"],
+        lastIntentCheck:{
+            correct: ["-","-"],
+            incorrect: [],
+            questionResult: ["--"]
+        }
+
+    },
     // Agrega más preguntas aquí
 ];
 

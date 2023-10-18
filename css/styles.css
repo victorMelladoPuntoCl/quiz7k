@@ -82,9 +82,11 @@ body {
 
 .slider {
     display: flex;
+    flex-direction: row;
     transition: transform 0.3s ease-in-out;
     height:100vh;
-    flex-direction:row;
+    max-width: 100%;
+
 }
 
 .slide {
@@ -92,11 +94,25 @@ body {
     display:flex;
     flex-direction: column; /* Orientación vertical */
     justify-content: space-between;
+
+
 }
 
-.slide div{
-    border:red thin dotted;
+.slide .sup{
+  border:red thin dotted;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  height:100%;
+  color:white;
 }
+
+.slide h2{
+text-align:center;
+}
+
+
 
 
 .prompt h1, .prompt h2, .prompt p {

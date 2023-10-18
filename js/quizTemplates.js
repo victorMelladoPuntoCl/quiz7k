@@ -1,5 +1,5 @@
 const tp_multipleChoice = ({ question, index }) => `
-<div><h2>${question.question}</h2></div>
+<div class="sup"><h2>${question.question}</h2></div>
 <div class="quiz-form-container">
 </div>
     <form id="${index}" class="question-options">
@@ -9,7 +9,7 @@ const tp_multipleChoice = ({ question, index }) => `
         
             ${Object.entries(question.answers).map(([key, answer]) => `
                 <li><label for="${index}-${key}" class="option">
-                    <input type="${question.questionType === 'single-choice' ? 'radio' : 'checkbox'}" id="${index}-${key}" name="answers" value="${key}">
+                    <input type="${question.questionType === 'single-choice' ? 'radio' : 'checkbox'}" id="${index}-${key}" value="${key}">
                     <p>${answer}</p>
                     </label>
                 </li>
@@ -24,6 +24,16 @@ const tp_multipleChoice = ({ question, index }) => `
     </form>
 `;
 
+const tp_feedbackSlide = ({ question, index }) => `
+<div class="sup"><h2>Tu resultado</h2></div>
+
+<div class="feedback-slide">
+        <h2>feedBackSlide</h2>
+        <p>:D</p>
+</div>
+    `;
 
 
-export {tp_multipleChoice};
+
+
+export {tp_multipleChoice, tp_feedbackSlide};

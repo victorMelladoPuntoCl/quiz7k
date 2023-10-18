@@ -1,8 +1,8 @@
 import {myQuestions} from "/js/quizdata.js"; //contenido del cuestionario.
 import{nextSlide,prevSlide,updateSlide} from "/js/slideControl.js";
-import{tp_multipleChoice} from "/js/quizTemplates.js";
+import{tp_feedbackSlide,tp_multipleChoice} from "/js/quizTemplates.js";
 import { checkAnswers } from "/js/checkAnswers.js";
-
+import { getState, setState, subscribe } from "/js/state.js";
 
 
 /**
@@ -12,13 +12,34 @@ import { checkAnswers } from "/js/checkAnswers.js";
 
 function buildQuestion(myQuestions) {
     
+    console.log("myQuestions.length = "+myQuestions.length);
+    console.log("getState().currentScore = "+getState().currentScore);
+
     //recorrer el objeto
     myQuestions.forEach(function(question,index){
 
         let newSlide = document.createElement("div"); // crear slide
         newSlide.className = 'slide '+'question-'+index; // añadirle un className 'slide question+N'
         newSlide.setAttribute('data-slide', index); // añadirle además un data-slide = N (estamos un poco redundantes no?)
-        newSlide.innerHTML = tp_multipleChoice({ question, index }); // añadirle el template de la pregunta
+        
+        switch(question.questionType){
+            case ("multiple-choice"):
+                newSlide.innerHTML = tp_multipleChoice({ question, index }); // añadirle el template de la pregunta
+                break;
+                
+            case ("single-choice"):
+                newSlide.innerHTML = tp_multipleChoice({ question, index }); // añadirle el template de la pregunta
+                break;
+
+            case ("feedback-slide"):
+                newSlide.innerHTML = tp_feedbackSlide({ question, index }); // añadirle el template de la pregunta
+                break;
+            
+            default:
+                console.log("Error: no se reconoce el tipo de pregunta.");
+                break;
+        }
+
         slider.appendChild(newSlide); // añadirlo al slider
 
 
