@@ -27,9 +27,6 @@ const tp_multipleChoice = ({ question, index }) => `
 const tp_feedbackSlide = ({ question, index }) => `
 <div class="sup"><h2>Tu resultado</h2></div>
 
-<div class="feedback-slide">
-        <h2>feedBackSlide</h2>
-        <p>:D</p>
 </div>
     `;
 

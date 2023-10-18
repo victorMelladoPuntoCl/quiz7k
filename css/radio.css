@@ -24,19 +24,29 @@ input[type="radio"] {
   display: grid;
   place-content: center;
 }
+input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--oscuro);
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 2.15em;
+  height: 2.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+}
 
 input[type="radio"]::before {
   content: "";
-  border-radius: 5em;
-  width: 0.65em;
-  height: 0.65em;
-  clip-path: circle(50px at 0 0px);
+  border-radius: 50%;
+  width: 0.9em;
+  height: 0.9em;
+  background-color: white; /* color del círculo dentro del radio */
   transform: scale(0);
-  transform-origin: center;
-  transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em var(--form-control-color);
-  /* Windows High Contrast Mode */
-  background-color: CanvasText;
+  transition: transform 0.2s ease-in-out;
 }
 
 input[type="radio"]:checked::before {

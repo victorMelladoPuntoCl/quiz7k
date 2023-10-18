@@ -1,8 +1,7 @@
-
 /*CHECKBOX*/
 
 
-input[type="checkbox"], input[type="radio"]::before {
+input[type="checkbox"] {
   /* Add if not using autoprefixer */
   -webkit-appearance: none;
   /* Remove most all native input styles */
@@ -26,7 +25,7 @@ input[type="checkbox"], input[type="radio"]::before {
   place-content: center;
 }
 
-input[type="checkbox"]::before, input[type="radio"]::before {
+input[type="checkbox"]::before {
   content: "";
   width: 0.65em;
   height: 0.65em;
@@ -39,16 +38,16 @@ input[type="checkbox"]::before, input[type="radio"]::before {
   background-color: CanvasText;
 }
 
-input[type="checkbox"]:checked::before, input[type="radio"]:checked::before {
+input[type="checkbox"]:checked::before {
   transform: scale(1);
 }
 
-input[type="checkbox"]:focus, input[type="radio"]:focus {
+input[type="checkbox"]:focus {
   outline: max(2px, 0.15em) solid var(--resaltado-checkboxes);
   outline-offset: max(2px, 0.15em);
 }
 
-input[type="checkbox"]:disabled, input[type="radio"]:disabled {
+input[type="checkbox"]:disabled {
   --form-control-color: var(--form-control-disabled);
 
   color: var(--form-control-disabled);

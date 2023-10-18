@@ -7,8 +7,6 @@ const myQuestions = [
             a: "verde",
             b: "azul",
             c: "naranja",
-            d: "anaranjada",
-
         },
         correctAnswers: ["a", "b"],
         lastIntentCheck:{

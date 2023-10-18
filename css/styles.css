@@ -91,20 +91,25 @@ body {
 
 .slide {
     flex: 0 0 100%;
+    
     display:flex;
     flex-direction: column; /* Orientación vertical */
     justify-content: space-between;
-
 
 }
 
 .slide .sup{
   border:red thin dotted;
+  flex-wrap:wrap;
+  justify-content:center;
   display:flex;
   flex-direction: column;
   align-items: center;
   align-content: center;
   height:100%;
+  color:white;
+}
+.slide .sup h2{
   color:white;
 }
 

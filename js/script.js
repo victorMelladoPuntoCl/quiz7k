@@ -43,14 +43,8 @@ function buildQuestion(myQuestions) {
         slider.appendChild(newSlide); // añadirlo al slider
 
 
-        document.querySelectorAll('label').forEach(function(label) { //recorrer todos los labels
-            label.addEventListener('click', function() {
-              var input = this.querySelector('input');
-              input.checked = !input.checked;
-            });
-          });
-
     }); //termina forEach
+
 
         // Agrega un controlador de eventos a todos los formularios generados
         const forms = document.querySelectorAll('.question-options');
