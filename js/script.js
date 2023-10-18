@@ -47,8 +47,9 @@ function buildQuestion(myQuestions) {
 
 // Inicialización
 
-let currentPosition =0;
-let userAnswers = [];
+let currentPosition =0; // Inicializa la posición actual
+
+//let userAnswers = []; // Inicializa el array de respuestas
 
 //objetos para manipular el DOM
 const slider = document.querySelector('.slider');
@@ -62,7 +63,7 @@ const continueButton = document.getElementById('continueButton');
     //Navegación
     //agregar eventos a los botones
     continueButton.addEventListener('click', function() {
-        currentPosition = nextSlide(myQuestions, currentPosition, slider);
+        currentPosition = nextSlide(slides, currentPosition, slider);
         document.querySelector('.feedback').classList.add('hidden');
         document.querySelector('.question-'+currentPosition).classList.add('active');
         console.log("nextSlide terminado. currentPosition : "+currentPosition);
@@ -70,12 +71,12 @@ const continueButton = document.getElementById('continueButton');
 
     
     nextButton.addEventListener('click', function() {
-        currentPosition = nextSlide(myQuestions, currentPosition, slider);
+        currentPosition = nextSlide(slides, currentPosition, slider);
         console.log("nextSlide terminado. currentPosition : "+currentPosition);
     });
 
     prevButton.addEventListener('click', function() {
-        currentPosition = prevSlide(myQuestions, currentPosition, slider);
+        currentPosition = prevSlide(slides, currentPosition, slider);
         console.log("nextSlide terminado. currentPosition : "+ currentPosition);
     });
 

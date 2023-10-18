@@ -1,40 +1,46 @@
-
-//*AVANCE Y RETROCESO POR LOS SLIDES*//
-
-// Función para avanzar al siguiente slide
+/**
+ * Función para avanzar al siguiente slide
+ * @param {NodeList} currentArray La lista actual de slides
+ * @param {Integer} currentPosition La posición actual del slide
+ * @param {NodeList} slider El contenedor del slider
+ * @returns La nueva posición del slide
+ */
 function nextSlide(currentArray, currentPosition, slider) {
-    console.log('nextslide \n currentArray.length = '+ currentArray.length);
-    console.log('currentPosition = '+ currentPosition);
-    console.log(currentPosition < currentArray.length - 1);
-    if (currentPosition < currentArray.length -1) {      
+    if (currentPosition < currentArray.length - 1) {      
         let newPosition = currentPosition + 1;
         updateSlide(newPosition, currentArray, slider);
-        return (newPosition);
+        return newPosition;
     } else {
-        return (currentPosition);
+        return currentPosition;
     }
 };
 
-// Función para retroceder al slide anterior
+/**
+ * Función para retroceder al slide anterior
+ * @param {*} currentArray 
+ * @param {*} currentPosition 
+ * @param {*} slider 
+ * @returns 
+ */
+
 function prevSlide(currentArray, currentPosition, slider) {
-    console.log("-----"+currentPosition);
-    if (currentPosition > 0) {    
-        let newPosition = currentPosition - 1;
-        console.log("prevSlide | "+ currentPosition+" > "+newPosition);
-        console.log('updateSlide newPosition: '+newPosition);
-        updateSlide(newPosition, currentArray, slider);   
-        return (newPosition);
+   if (currentPosition > 0) {   // Si la posición actual es mayor que cero 
+        let newPosition = currentPosition - 1; // Resta uno a la posición actual       
+        updateSlide(newPosition, currentArray, slider); //Genera el movimiento
+        return (newPosition); // Devuelve la nueva posición
     } else{
-        return (currentPosition);
+        return (currentPosition); // Devuelve la posición actual sin actualizar
     }
-    
 };
 
 // Función para actualizar la vista del slide
 function updateSlide(newPosition, currentArray,slider) { 
+    //Mueve todo el slider. Se mueve el slider a la posición indicada por newPosition
     slider.style.transform = `translateX(-${newPosition * 100}%)`;
     console.log('updateSlide newPosition: '+newPosition);
 };
+
+
 
 let currentPosition = 0;
 
