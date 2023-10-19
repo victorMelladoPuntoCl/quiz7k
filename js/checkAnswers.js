@@ -1,3 +1,5 @@
+
+import {myQuestions} from "/js/quizdata.js"; //contenido del cuestionario.
 import { getState, setState, registerStateListener } from "/js/state.js";
 import { nextSlide, prevSlide, updateSlide } from "/js/slideControl.js";
 import { showModal } from "/js/modal.js";
@@ -5,87 +7,141 @@ import { showModal } from "/js/modal.js";
 //Función que recibe un array de respuestas, un array de respuestas correctas y devuelve un objeto con las respuestas correctas, 
 //incorrectas y el resultado de la pregunta.
 
-function checkAnswers(event, myQuestions, userAnswers, currentPosition) {
 
-    let form = event.target;
-    let correct = [];
-    let incorrect = [];
+/**
+ * checkAnswers
+ * @param {HTMLFormElement} formHTML //Formulario sobre el que se muestra feedback posterior.
+ * @param {Object} myQuestions 
+ * @param {array} userAnswers 
+ * @param {int} key 
+ * @param {array} correctQuestionAnswers 
+ * @returns resultado de la pregunta
+ */
+function checkAnswers(formHTML, myQuestions, userAnswers, key, correctQuestionAnswers) { //eliminado currentPosition, lo pediremos al evento que lo generó.
+    //Arma el objeto con los resultados
+    let correct = []; //guarda las opciones marcadas correctas para el feedback posterior.
+    let incorrect = []; //guarda las opciones marcadas incorrectas para el feedback posterior.
     let questionResult = '';
-
+ 
 
 
     // Marcar los botones de pregunta según corresponda (correcto/incorrecto)
     // Recorremos el formulario para obtener los valores de los inputs
-
     //Si no hay ningún input checked, no correr el forEach y enviar una alert
-    if (form.querySelectorAll('input:checked').length === 0) {
+    
+    if (userAnswers.length===0) {
         alert('Por favor elija una opción');
         return;
-    } else (form.querySelectorAll('input').forEach(input => {
-        //si el valor del input está checked, y coincide con alguno de los elementos de correctAnswers, aplicar la clase "correct"
-        if (input.checked && myQuestions[currentPosition].correctAnswers.includes(input.value)) {
-            input.classList.add('correct');
-            questionResult='correct'
-            
-        }
-        //si el valor del input está checked, y no coincide con alguno de los elementos de correctAnswers, aplicar la clase "incorrect"
-        else if (input.checked && !myQuestions[currentPosition].correctAnswers.includes(input.value)) {
-            input.classList.add('incorrect');          
-                questionResult = 'incorrect';
-        }
+    } else {
 
-        //si el valor del input no está checked, y coincide con alguno de los elementos de correctAnswers, aplicar la clase "incorrect"
-        else if (!input.checked && myQuestions[currentPosition].correctAnswers.includes(input.value)) {
-            input.classList.add('incorrect');
+        let allOptions = (Object.keys(myQuestions[key].answers)); //obtener todas las opciones de la pregunta actual. 
+        allOptions.sort(); //ordenar las respuestas de la pregunta actual.
+        userAnswers.sort(); //ordenar las respuestas del usuario.
+        correctQuestionAnswers.sort(); //ordenar las respuestas correctas de la pregunta actual.
+
+        //Obtener el resultado general de la pregunta, 
+        //comparando userAnswers con correctQuestionAnswers.
+        //si son exactamente iguales, questionResult es correct.
+        //si no es así, questionResult es incorrect.
+        if (JSON.stringify(userAnswers) === JSON.stringify(correctQuestionAnswers)) {
+            questionResult = 'correct';
+        }
+        else {
             questionResult = 'incorrect';
-            
         }
-    }));
 
-
-    //Arma el objeto con los resultados
-    const result = {
-        correct,
-        incorrect,
-        questionResult,
-    };
-
-    console.log("Objeto de Resultado de la pregunta actualdesde checkAnswers", result);
-    showFeedback(result);
+        //Recorrer el array de respuestas del usuario
+        userAnswers.forEach(answer => {
+            if (correctQuestionAnswers.includes(answer)) {
+                correct.push(answer);
+            } else {
+                incorrect.push(answer);
+            };
+        })
     
-    //Actualizar el estado de la pregunta.
-    let currentState = getState();
-    currentState.results.push(result.questionResult);
-    setState(currentState);
+    } //fin else.
 
-    return result;
+    //Armar el objeto con los detalles de la pregunta y sus resultados.
+    //El objeto tiene los siguientes campos:
+    //questionID: id de la pregunta
+    //userAnswers: array con las respuestas del usuario
+    //correctQuestionAnswers: array con las respuestas correctas de la pregunta
+    //correct: array con las respuestas correctas del usuario
+    //incorrect: array con las respuestas incorrectas del usuario
+    //questionResult: resultado de la pregunta (correct/incorrect)
+
+
+        let questionresultDetails= {
+            questionID: key,
+            userAnswers,
+            correctQuestionAnswers,
+            correct,
+            incorrect,
+            questionResult
+        };
+
+
+    //enviar el detalle de las respuestas a showFeedback para mostrarlas y mostrar la pantalla de resultado de la pregunta
+    showFeedback(questionresultDetails);
+
+return questionresultDetails;
 }
 
+/**
+ * Se hace cargo de mostrar al usuario el feedback de la pregunta y habilitarlo para continuar.
+ * @param {Object} resultDetailsObject 
+ */
 
-function showFeedback(result) {
+function showFeedback(resultDetailsObject) {
 
-    let options = document.querySelectorAll('.option'); //array con todos los elementos del form
+    let result = resultDetailsObject; //objeto con los detalles de la pregunta y sus resultados.
 
-    let correctAnswers = result.correct; //obtener un array con todas las respuestas correctas del usuario, desde el objeto result
+    //recuperar el formulario de la pregunta actual
+    let form = document.querySelector('.question-options');
+    
+    //Mostrar la ventana de feedback
+    let feedback = document.querySelector('.feedback');
+    feedback.classList.remove('hidden'); //mostrar la ventana de feedback
+    feedback.querySelector('.feedback-text').textContent = result.questionResult;
 
+   
+    //obtener un array con todas las respuestas correctas del usuario, desde el objeto result
     // añadir a cada opción la class 'correct' si coincide con alguno de los elementos de correctAnswers
+
+    let options = form.querySelectorAll('ul input'); //array con todos los elementos del form
+    let correctQuestionAnswers = resultDetailsObject.correctQuestionAnswers; // array con todas las respuestas correctas de la pregunta actual.
+    let correctAnswers = resultDetailsObject.correct; // array con todas las respuestas correctas del usuario
+    let incorrectAnswers = resultDetailsObject.incorrect; // array con todas las respuestas incorrectas del usuario
+
+    //recorrer todas las options de la pregunta
+    console.log (correctAnswers);
     options.forEach(option => {
-        if (correctAnswers.includes(option.value)) {
+        console.log(option);
+        //si la opción está en correctAnswers, añadir la class 'correct'
+        if (option.checked && correctAnswers.includes(option.value)) {
             option.classList.add('correct');
         }
+
+        //si la opción está en incorrectAnswers, añadir la class 'incorrect'
+        if (option.checked && incorrectAnswers.includes(option.value)) {
+            option.classList.add('incorrect');
+        
+        } 
+        //si la opción no está marcada, pero está en correctAnswers, añadir la clase 'incorrect-unchecked'
+        if (option.checked == false && correctQuestionAnswers.includes(option.value)){
+            console.log("faltó marcar: "+option.value);
+            option.classList.add('incorrect-unchecked');
+
+        }
+
     });
 
 
 
-    let feedback = document.querySelector('.feedback');
-    feedback.classList.remove('hidden');
-    feedback.querySelector('.feedback-text').textContent = result.questionResult;
+    
+    
 }
 
-function hideFeedback() {
-    let feedback = document.querySelector('.feedback');
-    feedback.classList.add('hidden');
-}
 
 
 export { checkAnswers };

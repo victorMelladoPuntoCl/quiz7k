@@ -49,8 +49,12 @@ function buildQuiz(myQuestions, slider) {
         forms.forEach((form, key) => {
             form.addEventListener('submit', function(event) { // Listener al submit del form (cada pregunta es un form)
                 event.preventDefault(); // Bloquea el refresco de página.
-                const userAnswers = Array.from(form.querySelectorAll('input[name="answers"]:checked')).map(input => input.value); // Genera un Array con las respuestas en estado checked.
-                checkAnswers(event, myQuestions, userAnswers, key); // Llama a la función que comprueba las respuestas.
+
+                const userAnswers = Array.from(form.querySelectorAll('input:checked')).map(input => input.value); // Genera un Array con las respuestas en estado checked.                
+                console.log('userAnswers = '+userAnswers);              
+                let correctQuestionAnswers = myQuestions[key].correctAnswers;
+                //Enviar el formulario de esta iteración a chequear.
+                checkAnswers(event.target, myQuestions, userAnswers, key, correctQuestionAnswers ); // Llama a la función que comprueba las respuestas.
             });
         });
 }

@@ -79,6 +79,10 @@ button[type="submit"], .btn {
   transition: all 0.2s;
 }
 
+.incorrect-unchecked{
+  border: lightcoral thick solid !important;
+}
+
 label:has(> input.incorrect) {
   background-color:lightcoral;
 }

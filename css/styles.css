@@ -139,7 +139,6 @@ body {
 }
 
 .slide .sup{
-  border:red thin dotted;
   flex-wrap:wrap;
   justify-content:center;
   display:flex;
