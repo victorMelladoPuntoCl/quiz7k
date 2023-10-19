@@ -1,4 +1,4 @@
-import { getState, setState, subscribe } from "/js/state.js";
+import { getState, setState, registerStateListener } from "/js/state.js";
 import{tp_feedbackSlide,tp_multipleChoice} from "/js/quizTemplates.js";
 import { checkAnswers } from "/js/checkAnswers.js";
 
@@ -55,4 +55,8 @@ function buildQuiz(myQuestions, slider) {
         });
 }
 
-export{buildQuiz};
+function registerBuildQuizListener(listener) {
+    registerStateListener(listener); // Aquí simplemente reutilizamos la función de registro del estado
+}
+
+export{buildQuiz, registerBuildQuizListener};

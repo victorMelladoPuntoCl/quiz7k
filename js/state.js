@@ -29,12 +29,13 @@ let state = {
   const setState = (newState) => { 
     state = { ...state, ...newState }; // Aquí se actualizará el estado
     listeners.forEach((listener) => listener(state)); // Aquí se ejecutarán las funciones que se suscribieron
+    console.log('setState, nuevo estado: '+JSON.stringify(newState));
   };
  
-  const subscribe = (listener) => {
+  const registerStateListener = (listener) => {
     listeners.push(listener);
   };
 
  
   
-  export { getState, setState, subscribe};
+  export { getState, setState, registerStateListener};

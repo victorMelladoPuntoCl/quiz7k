@@ -1,7 +1,8 @@
-import { getState, setState, subscribe } from "/js/state.js";
+import { getState, setState,registerStateListener } from "/js/state.js";
 import {myQuestions} from "/js/quizdata.js"; //contenido del cuestionario.
 import{nextSlide,prevSlide,updateSlide} from "/js/slideControl.js";
 import { buildQuiz } from "./buildQuiz.js";
+import {buildProgressTracking, updateProgressWithResults} from "/js/progressTracking.js";
 
 // Inicialización
 
@@ -40,5 +41,8 @@ console.log("Documento cargado");
     //Inicializar
 
     buildQuiz(myQuestions, slider); //y eso, comenzar a construir todo.
+    buildProgressTracking(myQuestions); // construir la barra de progreso.
+    registerStateListener(updateProgressWithResults);
+
 
 

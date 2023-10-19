@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz App</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    <button id="prev" style="position:absolute;right:200px;top:0;z-index:9999">Anterior</button>
-    <button id="next" style="position:absolute;right:0;top:0;z-index:9999">Siguiente</button>
+  <button id="prev" style="position:absolute;right:200px;top:0;z-index:9999">Anterior</button>
+  <button id="next" style="position:absolute;right:0;top:0;z-index:9999">Siguiente</button>
 
-    <div class="scroll-bg"></div>
-    <div class="head">
-        <ul class="activity-label">
-          <li>ACTIVIDAD 1</li>
-          <li class="l2">PREGUNTA 1</li>
-        </ul>
-      </div>
+  <div class="scroll-bg"></div>
+  <div class="head">
+    <ul class="activity-label">
+      <li>ACTIVIDAD 1</li>
+      <li class="l2">PREGUNTA 1</li>
+    </ul>
 
-    <div class="slider-container">
-        <div class="slider">
-        </div>
+    <div class="statusbar">
+      <ul class="progressbar">
+        <!-- los li de aquí serán los círculos indicadores-->
+      </ul>
+      <b class="timer">00:00</b>
     </div>
+  </div>
 
-    <div class="feedback hidden">
-      <p class="feedback-text center">Correcto/Incorrecto</p>
-      <button id="continueButton"class="btn center">continuar</button>
+  <div class="slider-container">
+    <div class="slider">
     </div>
+  </div>
 
-    <div class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>¡Hola! Este es mi modal personalizado.</p>
-      </div>
+  <div class="feedback hidden">
+    <p class="feedback-text center">Correcto/Incorrecto</p>
+    <button id="continueButton" class="btn center">continuar</button>
+  </div>
+
+  <div class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>¡Hola! Este es mi modal personalizado.</p>
     </div>
+  </div>
 
-    <script src="js/script.js" type="module"></script>
+  <script src="js/script.js" type="module"></script>
 </body>
+
 </html>

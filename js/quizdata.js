@@ -1,6 +1,7 @@
 const myQuestions = [
     {
         questionID:"1",
+        trackProgress: [1],
         questionType: "multiple-choice",
         question: "Las respuestas correctas son: verde y azul.",
         answers: {
@@ -17,6 +18,7 @@ const myQuestions = [
     },
     {
         questionID:"2",
+        trackProgress: [1],
         questionType: "single-choice",
         question: "¿de qué color es el plátano?",
         answers: {
@@ -34,6 +36,7 @@ const myQuestions = [
     },
     {
         questionID:"3",
+        trackProgress: [1],
         questionType: "multiple-choice",
         question: "Son correctas: Pera y Manzana",
         answers: {
@@ -52,6 +55,7 @@ const myQuestions = [
     },
     {
         questionID:"4",
+        trackProgress: [1],
         questionType: "multiple-choice",
         question: "Son correctas: Pera y Manzana",
         answers: {
@@ -70,6 +74,7 @@ const myQuestions = [
     },
     {
         questionID:"5",
+        trackProgress: [1],
         questionType: "multiple-choice",
         question: "Son correctas: Pera y Manzana",
         answers: {
@@ -88,6 +93,7 @@ const myQuestions = [
     },
     {
         questionID:"6",
+        trackProgress: [0],
         questionType: "feedback-slide",
         question: "---",
         answers: {
