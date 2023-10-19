@@ -9,7 +9,7 @@ const tp_multipleChoice = ({ question, index }) => `
         
             ${Object.entries(question.answers).map(([key, answer]) => `
                 <li><label for="${index}-${key}" class="option">
-                    <input type="${question.questionType === 'single-choice' ? 'radio' : 'checkbox'}" id="${index}-${key}" value="${key}">
+                    <input type="${question.questionType === 'single-choice' ? 'radio" name="group-question-'+question.questionID : 'checkbox'}" id="${index}-${key}" value="${key}" group="">
                     <p>${answer}</p>
                     </label>
                 </li>

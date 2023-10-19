@@ -1,59 +1,51 @@
-import { getState, setState, subscribe} from "/js/state.js";
+import {getState, setState, subscribe} from "/js/state.js";
 import{nextSlide,prevSlide,updateSlide} from "/js/slideControl.js";
+import { showModal } from "/js/modal.js";
 
 //Función que recibe un array de respuestas, un array de respuestas correctas y devuelve un objeto con las respuestas correctas, 
 //incorrectas y el resultado de la pregunta.
 
 function checkAnswers(event, myQuestions, userAnswers, currentPosition) {
 
-    console.log('event, myQuestions, userAnswers, currentPosition');
-    console.dir(event); //evento que se ha enviado
-    console.dir(myQuestions); //array de preguntas
-    console.dir('UserAnswers:'+userAnswers); //array de respuestas del usuario
-    console.dir(currentPosition);
-    console.log('Correct Answers:'+myQuestions[currentPosition].correctAnswers);
     let form = event.target;
-    let questionID = form.querySelector('input[name="questionID"]').value;
-
     let correct = [];
     let incorrect = [];
     let questionResult = '';
 
-    //Si el array de preguntas correctas es igual al de las respuestas del usuario, entonces es correcto
-    if (JSON.stringify(myQuestions[currentPosition].correctAnswers) === JSON.stringify(userAnswers)) {
-        correct.push(currentPosition);
-        questionResult = 'Correcto';
 
-    }
-    else {
-        incorrect.push(currentPosition);
-        questionResult = 'Incorrecto';
-    }
-
-
+    
+    // Marcar los botones de pregunta según corresponda (correcto/incorrecto)
     // Recorremos el formulario para obtener los valores de los inputs
-    form.querySelectorAll('input').forEach(input => {
+
+    //Si no hay ningún input checked, no correr el forEach y enviar una alert
+    if (form.querySelectorAll('input:checked').length === 0) {
+        alert('Por favor elija una opción');
+        
+        return;
+    } else (form.querySelectorAll('input').forEach(input => {
         //si el valor del input está checked, y coincide con alguno de los elementos de correctAnswers, aplicar la clase "correct"
         if (input.checked && myQuestions[currentPosition].correctAnswers.includes(input.value)) {
             input.classList.add('correct');
+            questionResult = 'Correcto!';
         }
         //si el valor del input está checked, y no coincide con alguno de los elementos de correctAnswers, aplicar la clase "incorrect"
         else if (input.checked && !myQuestions[currentPosition].correctAnswers.includes(input.value)) {
             input.classList.add('incorrect');
+            questionResult = 'Incorrecto...';
         }
 
         //si el valor del input no está checked, y coincide con alguno de los elementos de correctAnswers, aplicar la clase "incorrect"
         else if (!input.checked && myQuestions[currentPosition].correctAnswers.includes(input.value)) {
             input.classList.add('incorrect');
+            questionResult = 'Incorrecto...';
         }
-      
-    });
 
-
-
-    
-
-    
+        if(questionResult=='Correcto!'){
+        let currentState = getState();
+        currentState.currentScore++; //sumar un punto
+        setState(currentState); //actualizar el state
+        console.log("Puntos: ", currentState.currentScore);
+    }));
 
 
     //Arma el objeto con los resultados
@@ -70,13 +62,7 @@ function checkAnswers(event, myQuestions, userAnswers, currentPosition) {
 }
 
 
-function addResultClass(result) {
-
-
-}
-
 function showFeedback(result) {
-
     
     let options = document.querySelectorAll('.option'); //array con todos los elementos del form
 

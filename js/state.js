@@ -16,6 +16,8 @@ let state = {
     currentScore: 0,
     totalScore: 0,
     results: [], // Aquí se guardará el resultado de cada pregunta, por ejemplo: { question: "¿Pregunta?", result: "correct" }
+    currentPosition:0, // Posición actual dentro del quiz (pregunta actual). Parte del 0.
+    userAnswers:[], // Aquí se guardarán las respuestas del usuario. Parte del 0.
   };
   
   const listeners = []; // Aquí se guardarán las funciones que se ejecutarán cuando se cambie el estado
