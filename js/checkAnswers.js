@@ -13,7 +13,7 @@ import { showModal } from "/js/modal.js";
  * @param {HTMLFormElement} formHTML //Formulario sobre el que se muestra feedback posterior.
  * @param {Object} myQuestions 
  * @param {array} userAnswers 
- * @param {int} key 
+ * @param {int} key  //posición del array de preguntas que se está corrigiendo.
  * @param {array} correctQuestionAnswers 
  * @returns resultado de la pregunta
  */
@@ -22,6 +22,8 @@ function checkAnswers(formHTML, myQuestions, userAnswers, key, correctQuestionAn
     let correct = []; //guarda las opciones marcadas correctas para el feedback posterior.
     let incorrect = []; //guarda las opciones marcadas incorrectas para el feedback posterior.
     let questionResult = '';
+    let questionID = myQuestions[key].questionID;
+    let questionKey = key;
  
 
 
@@ -72,13 +74,18 @@ function checkAnswers(formHTML, myQuestions, userAnswers, key, correctQuestionAn
 
 
         let questionresultDetails= {
-            questionID: key,
+            questionID,
+            questionKey,
             userAnswers,
             correctQuestionAnswers,
             correct,
             incorrect,
             questionResult
         };
+
+    let state = getState();
+    state.results.push(questionResult);
+    setState(state);
 
 
     //enviar el detalle de las respuestas a showFeedback para mostrarlas y mostrar la pantalla de resultado de la pregunta
@@ -97,11 +104,13 @@ function showFeedback(resultDetailsObject) {
     let result = resultDetailsObject; //objeto con los detalles de la pregunta y sus resultados.
 
     //recuperar el formulario de la pregunta actual
-    let form = document.querySelector('.question-options');
+    let key= resultDetailsObject.questionKey;
+    let form = document.getElementById(resultDetailsObject.questionKey);
     
     //Mostrar la ventana de feedback
     let feedback = document.querySelector('.feedback');
     feedback.classList.remove('hidden'); //mostrar la ventana de feedback
+    feedback.classList.add('animate__animated', 'animate__bounceIn');
     feedback.querySelector('.feedback-text').textContent = result.questionResult;
 
    

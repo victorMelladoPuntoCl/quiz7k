@@ -51,19 +51,31 @@ button[type="submit"]:active,
 
 /*Parte inferior de las preguntas*/
 
-.questionFt{
+.questionFt, .feedback{
   display:flex;
   height:20vh;
+  flex-direction: column;
+  align-items:center;
 }
 
-button[type="submit"], .btn {
+/*
+Botón principal para enviar o continuar
+Dentro de .questionFt (preguntas) 
+o dentro de feedback en el html principal
+*/
+
+.main-button {
+  max-width:70vw;
+  min-width:60vh;
+  max-height:15vh;
   flex:1;
   color: var(--form-control-color);
-  font-size: 30px;
-  padding: 20px;
+  font-size: 2em;
+  padding: 1em 0.5em;
   margin: 10px;
   border-radius: 50px;
   background-color: var(--oscuro);
+
 }
 
 

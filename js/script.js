@@ -14,6 +14,23 @@ const prevButton = document.getElementById('prev');
 const nextButton = document.getElementById('next');
 const continueButton = document.getElementById('continueButton');
 
+//reset 
+//quitar todas las clases 'correct', 'incorrect' e 'incorrect-unchecked' que pueda haber en cualquier elemento del quiz
+//obtener todos los elementos li de la página
+
+function resetQuiz() {
+    let liElements = document.querySelectorAll('li');
+    liElements.forEach(liElement => {
+        liElement.classList.remove('correct');
+        liElement.classList.remove('incorrect');
+        liElement.classList.remove('incorrect-unchecked');
+    }
+
+    );
+
+}
+
+
 console.log("Documento cargado");
     
 //Navegación

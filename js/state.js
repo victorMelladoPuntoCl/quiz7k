@@ -15,7 +15,7 @@
 let state = {
     currentScore: 0,
     totalScore: 0,
-    results: [], // Aquí se guardará el resultado de cada pregunta, por ejemplo: { question: "¿Pregunta?", result: "correct" }
+    results: [], // Aquí se guardará el resultado de cada pregunta, por ejemplo: [ "correct","incorrect"]
     currentPosition:0, // Posición actual dentro del quiz (pregunta actual). Parte del 0.
     userAnswers:[], // Aquí se guardarán las respuestas del usuario. Parte del 0.
   };
@@ -27,7 +27,7 @@ let state = {
   const getState = () => state; // Aquí se devolverá el estado
   
   const setState = (newState) => { 
-    state = { ...state, ...newState }; // Aquí se actualizará el estado
+    state = { ...state, ...newState }; // Aquí se actualizará el estado (operador de ...)
     listeners.forEach((listener) => listener(state)); // Aquí se ejecutarán las funciones que se suscribieron
     console.log('setState, nuevo estado: '+JSON.stringify(newState));
   };
@@ -36,6 +36,6 @@ let state = {
     listeners.push(listener);
   };
 
- 
+
   
   export { getState, setState, registerStateListener};

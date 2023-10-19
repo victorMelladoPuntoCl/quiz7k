@@ -19,7 +19,7 @@ const tp_multipleChoice = ({ question, index }) => `
         <input type="hidden" name="questionID" value="${index}" class="questionID">
         <input type="hidden" name="questionIndex" value="${index}" class="questionIndex">
         <div class="questionFt">
-        <button type="submit" class="submitButton">COMPROBAR</button>
+        <button type="submit" class="submitButton main-button">COMPROBAR</button>
         </div>
     </form>
 `;

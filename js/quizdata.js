@@ -1,96 +1,82 @@
 const myQuestions = [
     {
-        questionID:"1",
-        trackProgress: [1],
-        questionType: "multiple-choice",
-        question: "Las respuestas correctas son: verde y azul.",
-        answers: {
-            a: "verde",
-            b: "azul",
-            c: "naranja",
+        "questionID": "1",
+        "trackProgress": [1],
+        "questionType": "multiple-choice",
+        "question": "¿Cuál de las siguientes alternativas son las contraindicaciones en la Reflexología?",
+        "answers": {
+            "a": "Durante el embarazo",
+            "b": "En caso de hongos, heridas o cualquier tipo de erupción",
+            "c": "En enfermedades en estado febril elevado",
+            "d": "Parálisis"
         },
-        correctAnswers: ["a", "b"],
-        lastIntentCheck:{
-            correct: ["a","b"],
-            incorrect: [],
-            questionResult: ["correct"]
-        }
+        "correctAnswers": ["b", "c"]
     },
     {
-        questionID:"2",
-        trackProgress: [1],
-        questionType: "single-choice",
-        question: "¿de qué color es el plátano?",
-        answers: {
-            a: "verde",
-            b: "azul",
-            c: "naranja",
-            d: "amarillo"
+        "questionID": "2",
+        "trackProgress": [1],
+        "questionType": "multiple-choice",
+        "question": "¿La Reflexología que enseñamos no es más que…?",
+        "answers": {
+          "a": "Una terapia complementaria a las indicaciones del médico",
+          "b": "Es una alternativa a la automedicación",
+          "c": "Trabajamos con la homeostasis",
+          "d": "Tiene un efecto benéfico sobre todas las partes del cuerpo"
         },
-        correctAnswers: ["d"],
-        lastIntentCheck:{
-            correct: ["a","b"],
-            incorrect: [],
-            questionResult: ["correct"]
-        }
-    },
-    {
-        questionID:"3",
-        trackProgress: [1],
-        questionType: "multiple-choice",
-        question: "Son correctas: Pera y Manzana",
-        answers: {
-            a: "Pera",
-            b: "Trigo",
-            c: "Manzana",
-            d: "Leche"
+        "correctAnswers": ["c", "d"]
+      },
+      {
+        "questionID": "3",
+        "trackProgress": [1],
+        "questionType": "single-choice",
+        "question": "Unos de los personajes más influyentes en La Historia de la reflexología a nivel occidental fue:",
+        "answers": {
+          "a": "Edwin Bowers",
+          "b": "Joseph Shelvy",
+          "c": "Dwight Byers",
+          "d": "Fitzgerald"
         },
-        correctAnswers: ["a","c"],
-        lastIntentCheck:{
-            correct: ["a","b"],
-            incorrect: [],
-            questionResult: ["correct"]
-        }
-
-    },
-    {
-        questionID:"4",
-        trackProgress: [1],
-        questionType: "multiple-choice",
-        question: "Son correctas: Pera y Manzana",
-        answers: {
-            a: "Pera",
-            b: "Trigo",
-            c: "Manzana",
-            d: "Leche"
+        "correctAnswers": ["d"]
+      },
+      {
+        "questionID": "3",
+        "trackProgress": [1],
+        "questionType": "single-choice",
+        "question": "Unos de los personajes más influyentes en La Historia de la reflexología a nivel occidental fue:",
+        "answers": {
+          "a": "Edwin Bowers",
+          "b": "Joseph Shelvy",
+          "c": "Dwight Byers",
+          "d": "Fitzgerald"
         },
-        correctAnswers: ["a","c"],
-        lastIntentCheck:{
-            correct: ["a","b"],
-            incorrect: [],
-            questionResult: ["correct"]
-        }
-
-    },
-    {
-        questionID:"5",
-        trackProgress: [1],
-        questionType: "multiple-choice",
-        question: "Son correctas: Pera y Manzana",
-        answers: {
-            a: "Pera",
-            b: "Trigo",
-            c: "Manzana",
-            d: "Leche"
+        "correctAnswers": ["d"]
+      },
+      {
+        "questionID": "3",
+        "trackProgress": [1],
+        "questionType": "single-choice",
+        "question": "Unos de los personajes más influyentes en La Historia de la reflexología a nivel occidental fue:",
+        "answers": {
+          "a": "Edwin Bowers",
+          "b": "Joseph Shelvy",
+          "c": "Dwight Byers",
+          "d": "Fitzgerald"
         },
-        correctAnswers: ["a","c"],
-        lastIntentCheck:{
-            correct: ["a","b"],
-            incorrect: [],
-            questionResult: ["correct"]
-        }
-
-    },
+        "correctAnswers": ["d"]
+      },
+      {
+        "questionID": "4",
+        "trackProgress": [1],
+        "questionType": "single-choice",
+        "question": "¿Cómo funciona la reflexología según la ciencia?",
+        "answers": {
+          "a": "Estímulo y respuesta a través de las terminaciones nerviosas",
+          "b": "La circulación sanguínea",
+          "c": "Estimulo de la piel",
+          "d": "Alternativa a y b"
+        },
+        "correctAnswers": ["a"]
+      } ,   
     {
         questionID:"6",
         trackProgress: [0],

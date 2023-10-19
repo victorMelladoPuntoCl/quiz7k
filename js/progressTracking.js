@@ -1,15 +1,19 @@
 import {setState,getState } from "./state.js";
-import { myQuestions } from "./quizdata.js";
 
 // Función que construye dentro del ul .progressbar los li en base a la cantidad de preguntas en myQuestions
 const buildProgressTracking = (myQuestions) => {
     
     //construir un li por cada pregunta en myQuestions con un forEach
     myQuestions.forEach((question) => {
-        console.log(question.trackProgress[0]);
-        const li = document.createElement("li");
-        li.classList.add("step");
-        document.querySelector(".progressbar").appendChild(li);
+        console.log(question.questionType);
+
+
+        if (question.questionType != "feedback-slide") { //ignorar en la cuenta los elementos "feedback-slide"
+            const li = document.createElement("li");
+            li.classList.add("step");
+            document.querySelector(".progressbar").appendChild(li);
+        }
+        
     }
 )
 }
@@ -28,14 +32,17 @@ const buildProgressTracking = (myQuestions) => {
 
     //función que actualiza las clases de los li en base al estado de las preguntas en getState.results
     const updateProgressWithResults = () => {
+        console.log('feiididid');
         const steps = document.querySelectorAll(".step");
         steps.forEach((step, index) => {
             const result = getState().results[index];
+            console.log(result);
             if (result) {
                 step.classList.add(result);
             }
+           
         });
-        console.log('getState.results ='+getState().results);
+        
     }
 
 

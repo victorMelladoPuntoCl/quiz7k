@@ -6,36 +6,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz App</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animate.min.css">
 </head>
 
 <body>
-  <button id="prev" style="position:absolute;right:200px;top:0;z-index:9999">Anterior</button>
-  <button id="next" style="position:absolute;right:0;top:0;z-index:9999">Siguiente</button>
+  
+  <button id="prev" style="position:absolute;right:200px;top:0;z-index:9999" class="hidden">Anterior</button>
+  <button id="next" style="position:absolute;right:0;top:0;z-index:9999" class="hidden">Siguiente</button>
+  
 
   <div class="scroll-bg"></div>
   <div class="head">
     <ul class="activity-label">
-      <li>ACTIVIDAD 1</li>
+      <li >ACTIVIDAD 1</li>
       <li class="l2">PREGUNTA 1</li>
     </ul>
 
-    <div class="statusbar">
+    <div class="statusbar animate__animated animate__bounce animate__delay-2s">
       <ul class="progressbar">
         <!-- los li de aquí serán los círculos indicadores-->
       </ul>
-      <b class="timer">00:00</b>
     </div>
   </div>
 
-  <div class="slider-container">
+  <div class="slider-container" >
     <div class="slider">
     </div>
+
+    <div class="feedback hidden">
+      <p class="feedback-text">Correcto/Incorrecto</p>
+      <button id="continueButton" class="main-button">continuar</button>
+    </div>
   </div>
 
-  <div class="feedback hidden">
-    <p class="feedback-text center">Correcto/Incorrecto</p>
-    <button id="continueButton" class="btn center">continuar</button>
-  </div>
+  
 
   <div class="modal">
     <div class="modal-content">

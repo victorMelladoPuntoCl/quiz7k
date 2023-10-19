@@ -88,7 +88,7 @@ body {
 
 .statusbar ul {
   display:flex;
-  justify-content:left;
+  justify-content:center;
   flex-grow: 1;
 }
 .statusbar ul li{
@@ -111,6 +111,7 @@ body {
 /*slider*/
 
 .slider-container {
+    position:relative;
     display: flex;
     overflow: hidden;
     min-width: 360px;
@@ -139,12 +140,14 @@ body {
 }
 
 .slide .sup{
-  flex-wrap:wrap;
-  justify-content:center;
+  padding:20px;
   display:flex;
   flex-direction: column;
+  flex-wrap:wrap;
+  justify-content:center;
   align-items: center;
   align-content: center;
+  
   height:100%;
   color:white;
 }
@@ -231,23 +234,19 @@ text-align:center;
 
   .feedback {
     /* Posicionamiento */
-    position: fixed;
+    position: absolute;
     bottom: 0;
-    left: 50%;
+    left: 0;
     transform: translate(-50%, 0);
     
     /* Tamaño y apariencia */
-    width: 100vw;
+    width: 100%;
     max-width: 960px;
     min-height: 20vh;
     background-color: white;
-    border: thin solid gray;
-    border-radius: 40px 40px 0 0;
+    border: 5px solid gray;
     padding: 1em;
-    
-    /* Animaciones y transiciones */
-    animation: entrada-inferior;
-    transition: 0.5s all;
+  
     
     /* Otros */
     z-index: 100;
