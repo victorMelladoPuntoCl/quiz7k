@@ -5,9 +5,7 @@ const buildProgressTracking = (myQuestions) => {
     
     //construir un li por cada pregunta en myQuestions con un forEach
     myQuestions.forEach((question) => {
-        console.log(question.questionType);
-
-
+        
         if (question.questionType != "feedback-slide") { //ignorar en la cuenta los elementos "feedback-slide"
             const li = document.createElement("li");
             li.classList.add("step");
@@ -32,11 +30,11 @@ const buildProgressTracking = (myQuestions) => {
 
     //función que actualiza las clases de los li en base al estado de las preguntas en getState.results
     const updateProgressWithResults = () => {
-        console.log('feiididid');
+       
         const steps = document.querySelectorAll(".step");
         steps.forEach((step, index) => {
             const result = getState().results[index];
-            console.log(result);
+            
             if (result) {
                 step.classList.add(result);
             }

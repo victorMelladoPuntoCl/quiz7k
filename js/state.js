@@ -11,10 +11,12 @@
   // https://www.youtube.com/watch?v=OGzPm36IvQ
 
 
-// Objeto que guarda el estado actual del quiz.
+// Inicializa el objeto state.
 let state = {
-    currentScore: 0,
-    totalScore: 0,
+    currentScore: 0, //borrar
+    totalScore: 0, //borrar
+    totalQuizQuestions:0,
+    score:0,
     results: [], // Aquí se guardará el resultado de cada pregunta, por ejemplo: [ "correct","incorrect"]
     currentPosition:0, // Posición actual dentro del quiz (pregunta actual). Parte del 0.
     userAnswers:[], // Aquí se guardarán las respuestas del usuario. Parte del 0.
@@ -29,7 +31,7 @@ let state = {
   const setState = (newState) => { 
     state = { ...state, ...newState }; // Aquí se actualizará el estado (operador de ...)
     listeners.forEach((listener) => listener(state)); // Aquí se ejecutarán las funciones que se suscribieron
-    console.log('setState, nuevo estado: '+JSON.stringify(newState));
+    console.log('setState : currentPosition:'+ state.currentPosition + ' -  score:' + state.score);
   };
  
   const registerStateListener = (listener) => {

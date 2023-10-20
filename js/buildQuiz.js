@@ -11,25 +11,34 @@ import { checkAnswers } from "/js/checkAnswers.js";
 function buildQuiz(myQuestions, slider) {
     
     console.log("myQuestions.length = "+myQuestions.length);
+    
+    let state = getState();
+    let totalQuizQuestions = 0; //totalQuestionSlides
+    
 
+    //Inicializar
     //recorrer el objeto
     myQuestions.forEach(function(question,index){
-
+        
+        
         let newSlide = document.createElement("div"); // crear slide
         newSlide.className = 'slide '+'question-'+index; // añadirle un className 'slide question+N'
         newSlide.setAttribute('data-slide', index); // añadirle además un data-slide = N (estamos un poco redundantes no?)
         
+
         switch(question.questionType){
             case ("multiple-choice"):
                 newSlide.innerHTML = tp_multipleChoice({ question, index }); // añadirle el template de la pregunta
+                totalQuizQuestions = totalQuizQuestions + 1;
                 break;
                 
             case ("single-choice"):
                 newSlide.innerHTML = tp_multipleChoice({ question, index }); // añadirle el template de la pregunta
+                totalQuizQuestions = totalQuizQuestions + 1;
                 break;
 
             case ("feedback-slide"):
-                newSlide.innerHTML = tp_feedbackSlide({ question, index }); // añadirle el template de la pregunta
+                newSlide.innerHTML = tp_feedbackSlide(state); // añadirle el template de la pregunta
                 break;
             
             default:
@@ -37,6 +46,9 @@ function buildQuiz(myQuestions, slider) {
                 break;
         }
 
+        console.log("totalQuizQuestions = "+totalQuizQuestions);
+        state.totalQuizQuestions = totalQuizQuestions;
+        setState(state);
         slider.appendChild(newSlide); // añadirlo al slider
 
 

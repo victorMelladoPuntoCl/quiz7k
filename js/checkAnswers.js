@@ -24,6 +24,9 @@ function checkAnswers(formHTML, myQuestions, userAnswers, key, correctQuestionAn
     let questionResult = '';
     let questionID = myQuestions[key].questionID;
     let questionKey = key;
+    let state = getState();
+
+    let score = state.score;
  
 
 
@@ -47,12 +50,14 @@ function checkAnswers(formHTML, myQuestions, userAnswers, key, correctQuestionAn
         //si no es así, questionResult es incorrect.
         if (JSON.stringify(userAnswers) === JSON.stringify(correctQuestionAnswers)) {
             questionResult = 'correct';
+            state.score++;
         }
         else {
             questionResult = 'incorrect';
         }
+        state.results.push(questionResult); //añadir un 'correct' o 'incorrect' al array de resultados.
 
-        //Recorrer el array de respuestas del usuario
+        //Recorrer el array de respuestas del usuario y poblar los arrays de alternativas correctas e incorrectas.
         userAnswers.forEach(answer => {
             if (correctQuestionAnswers.includes(answer)) {
                 correct.push(answer);
@@ -63,28 +68,21 @@ function checkAnswers(formHTML, myQuestions, userAnswers, key, correctQuestionAn
     
     } //fin else.
 
-    //Armar el objeto con los detalles de la pregunta y sus resultados.
-    //El objeto tiene los siguientes campos:
-    //questionID: id de la pregunta
-    //userAnswers: array con las respuestas del usuario
-    //correctQuestionAnswers: array con las respuestas correctas de la pregunta
-    //correct: array con las respuestas correctas del usuario
-    //incorrect: array con las respuestas incorrectas del usuario
-    //questionResult: resultado de la pregunta (correct/incorrect)
-
-
+        
         let questionresultDetails= {
             questionID,
             questionKey,
             userAnswers,
+            score,
             correctQuestionAnswers,
             correct,
             incorrect,
             questionResult
         };
 
-    let state = getState();
-    state.results.push(questionResult);
+    
+
+    //guardar todos los cambios en el state.
     setState(state);
 
 
@@ -111,7 +109,12 @@ function showFeedback(resultDetailsObject) {
     let feedback = document.querySelector('.feedback');
     feedback.classList.remove('hidden'); //mostrar la ventana de feedback
     feedback.classList.add('animate__animated', 'animate__bounceIn');
-    feedback.querySelector('.feedback-text').textContent = result.questionResult;
+
+    if (result.questionResult === 'correct') {
+           feedback.querySelector('.feedback-text').textContent = "¡Excelente!"
+    } else {
+        feedback.querySelector('.feedback-text').textContent = "Tienes respuestas incorrectas, te recomendamos revisar el contenido y reintentar.";
+    }
 
    
     //obtener un array con todas las respuestas correctas del usuario, desde el objeto result
@@ -125,7 +128,7 @@ function showFeedback(resultDetailsObject) {
     //recorrer todas las options de la pregunta
     console.log (correctAnswers);
     options.forEach(option => {
-        console.log(option);
+        
         //si la opción está en correctAnswers, añadir la class 'correct'
         if (option.checked && correctAnswers.includes(option.value)) {
             option.classList.add('correct');

@@ -74,7 +74,6 @@ body {
   position:absolute;
   display:flex;
   justify-content: space-between;
-  align-items: center;
   right:0;
   width:30vw;
   min-width: 10em;
@@ -88,7 +87,7 @@ body {
 
 .statusbar ul {
   display:flex;
-  justify-content:center;
+  justify-content: space-between;
   flex-grow: 1;
 }
 .statusbar ul li{
@@ -238,7 +237,6 @@ text-align:center;
     bottom: 0;
     left: 0;
     transform: translate(-50%, 0);
-    
     /* Tamaño y apariencia */
     width: 100%;
     max-width: 960px;
@@ -246,11 +244,14 @@ text-align:center;
     background-color: white;
     border: 5px solid gray;
     padding: 1em;
-  
-    
     /* Otros */
     z-index: 100;
 
+  }
+
+  .feedback-text{
+    font-size:1.5em;
+    padding:10px;
   }
   .correct{
     background-color: green!important;

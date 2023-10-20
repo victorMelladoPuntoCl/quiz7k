@@ -41,6 +41,12 @@ console.log("Documento cargado");
         document.querySelector('.feedback').classList.add('hidden');
         document.querySelector('.question-'+currentPosition).classList.add('active');
         console.log("nextSlide terminado. currentPosition : "+currentPosition);
+        let state = getState();
+        state.currentPosition = currentPosition;
+        setState(state);
+
+
+
     });
 
     //Estos son de debug, hay que borrarlos.

@@ -1,3 +1,5 @@
+import { setState,getState,registerStateListener } from "./state.js";
+
 const tp_multipleChoice = ({ question, index }) => `
 <div class="sup"><h2>${question.question}</h2></div>
 <div class="quiz-form-container">
@@ -24,12 +26,44 @@ const tp_multipleChoice = ({ question, index }) => `
     </form>
 `;
 
-const tp_feedbackSlide = ({ question, index }) => `
-<div class="sup"><h2>Tu resultado</h2></div>
+/**
+ * 
+ * @returns HTML Pantalla de resultado final.
+ */
 
-</div>
-    `;
+const tp_feedbackSlide = function(state){
 
+    function updateFeedbackSlide(state){
+
+        let totalQuizQuestions = state.totalQuizQuestions;
+        let score = state.score;
+        let message = '';
+
+        if (totalQuizQuestions==score){
+            message='¡Muy bien!'; 
+        } else{
+            message='¡Vuelve a intentarlo!';
+        };
+    
+        let HTMLContent = `
+        <div class="sup">
+        <h2 class=''>Tu resultado:</h2>
+        <h2 class='quiz-result'>Preguntas totales:${totalQuizQuestions}</h2>
+        <h2 class='quiz-result'>Respuestas correctas: ${score}<h2>
+        <h2 class='quiz-result-text'>${message}</h2>
+        <button class="main-button" onclick="location.reload()">REINICIAR</button>
+        </div>
+        `;
+        console.log(HTMLContent);
+        return HTMLContent;
+        
+    }
+
+    registerStateListener (updateFeedbackSlide); //devuelve cada vez que hay un set.
+    
+
+return updateFeedbackSlide(state); //devuelve por primera vez.
+}
 
 
 
