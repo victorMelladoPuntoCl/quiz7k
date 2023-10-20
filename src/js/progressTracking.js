@@ -1,4 +1,4 @@
-import {setState,getState } from "./state.js";
+import {getState} from "./state.js";
 
 // Función que construye dentro del ul .progressbar los li en base a la cantidad de preguntas en myQuestions
 const buildProgressTracking = (myQuestions) => {

@@ -38,7 +38,7 @@
 
   body  {
     z-index:-233;
-      background-image: url('../img/bkg-9@2x-80.jpg');
+      background-image: url('../assets/bkg-9@2x-80.jpg');
     background-size:cover;
           -webkit-animation: slidein 100s;
           animation: slidein 100s;

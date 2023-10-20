@@ -1,8 +1,5 @@
 
-import {myQuestions} from "/js/quizdata.js"; //contenido del cuestionario.
-import { getState, setState, registerStateListener } from "/js/state.js";
-import { nextSlide, prevSlide, updateSlide } from "/js/slideControl.js";
-import { showModal } from "/js/modal.js";
+import { getState, setState } from "./state.js";
 
 //Función que recibe un array de respuestas, un array de respuestas correctas y devuelve un objeto con las respuestas correctas, 
 //incorrectas y el resultado de la pregunta.

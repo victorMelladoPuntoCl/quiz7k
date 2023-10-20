@@ -1,6 +1,6 @@
-import { getState, setState, registerStateListener } from "/js/state.js";
-import{tp_feedbackSlide,tp_multipleChoice} from "/js/quizTemplates.js";
-import { checkAnswers } from "/js/checkAnswers.js";
+import { getState, setState, registerStateListener } from "./state.js";
+import{tp_feedbackSlide,tp_multipleChoice} from "./quizTemplates.js";
+import { checkAnswers } from "./checkAnswers.js";
 
 /**
  * Construye y muestra las preguntas en forma de slides en el documento HTML.
