@@ -3,6 +3,7 @@ import {myQuestions} from "./js/quizdata.js"; //contenido del cuestionario.
 import{nextSlide,prevSlide,updateSlide} from "./js/slideControl.js";
 import { buildQuiz } from "./js/buildQuiz.js";
 import {buildProgressTracking, updateProgressWithResults} from "./js/progressTracking.js";
+import './css/styles.css';
 
 // Inicialización
 
