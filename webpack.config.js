@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ZipPlugin = require('zip-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -34,6 +35,8 @@ module.exports = {
             filename: './index.html'
         }),
         new MiniCssExtractPlugin(),
+        new ZipPlugin({
+            filename: 'yourZipFileName.zip',
+        }),
     ]
 }
-

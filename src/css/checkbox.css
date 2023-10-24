@@ -17,6 +17,7 @@ input[type="checkbox"] {
   color: currentColor;
   width: 2.15em;
   height: 2.15em;
+  min-width:2em;
   border: 0.15em solid currentColor;
   border-radius: 0.15em;
   transform: translateY(-0.075em);

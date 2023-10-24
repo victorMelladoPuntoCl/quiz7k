@@ -39,7 +39,11 @@ console.log("Documento cargado");
 //Botón continuar, continúa:
     continueButton.addEventListener('click', function() {
         currentPosition = nextSlide(myQuestions, currentPosition, slider);
+                 //ocultar el botón para comprobar
+
+
         document.querySelector('.feedback').classList.add('hidden');
+        
         document.querySelector('.question-'+currentPosition).classList.add('active');
         console.log("nextSlide terminado. currentPosition : "+currentPosition);
         let state = getState();

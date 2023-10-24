@@ -46,8 +46,10 @@ function checkAnswers(formHTML, myQuestions, userAnswers, key, correctQuestionAn
         //si son exactamente iguales, questionResult es correct.
         //si no es así, questionResult es incorrect.
         if (JSON.stringify(userAnswers) === JSON.stringify(correctQuestionAnswers)) {
-            questionResult = 'correct';
+            questionResult === 'correct';
+            let state=getState();
             state.score++;
+            setState(state);
         }
         else {
             questionResult = 'incorrect';
@@ -98,10 +100,14 @@ function showFeedback(resultDetailsObject) {
 
     let result = resultDetailsObject; //objeto con los detalles de la pregunta y sus resultados.
 
+
+
     //recuperar el formulario de la pregunta actual
     let key= resultDetailsObject.questionKey;
     let form = document.getElementById(resultDetailsObject.questionKey);
+
     
+
     //Mostrar la ventana de feedback
     let feedback = document.querySelector('.feedback');
     feedback.classList.remove('hidden'); //mostrar la ventana de feedback
@@ -110,7 +116,8 @@ function showFeedback(resultDetailsObject) {
     if (result.questionResult === 'correct') {
            feedback.querySelector('.feedback-text').textContent = "¡Excelente!"
     } else {
-        feedback.querySelector('.feedback-text').textContent = "Tienes respuestas incorrectas, te recomendamos revisar el contenido y reintentar.";
+        feedback.querySelector('.feedback-text').textContent = "¡Hay respuestas incorrectas!";
+
     }
 
    

@@ -33,13 +33,17 @@ const tp_multipleChoice = ({ question, index }) => `
 
 const tp_feedbackSlide = function(state){
 
-    function updateFeedbackSlide(state){
+    function updateFeedbackSlide(score){
+
+        let pState = getState();
+        let pscore = pState.score;
+
+        
 
         let totalQuizQuestions = state.totalQuizQuestions;
-        let score = state.score;
         let message = '';
 
-        if (totalQuizQuestions==score){
+        if (totalQuizQuestions >= pscore){
             message='¡Muy bien!'; 
         } else{
             message='¡Vuelve a intentarlo!';
@@ -49,7 +53,7 @@ const tp_feedbackSlide = function(state){
         <div class="sup">
         <h2 class=''>Tu resultado:</h2>
         <h2 class='quiz-result'>Preguntas totales:${totalQuizQuestions}</h2>
-        <h2 class='quiz-result'>Respuestas correctas: ${score}<h2>
+        <h2 class='quiz-result'>Respuestas correctas: ${pscore}<h2>
         <h2 class='quiz-result-text'>${message}</h2>
         <button class="main-button" onclick="location.reload()">REINICIAR</button>
         </div>
@@ -62,7 +66,7 @@ const tp_feedbackSlide = function(state){
     registerStateListener (updateFeedbackSlide); //devuelve cada vez que hay un set.
     
 
-return updateFeedbackSlide(state); //devuelve por primera vez.
+return updateFeedbackSlide(score); //devuelve por primera vez.
 }
 
 

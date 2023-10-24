@@ -6,9 +6,6 @@ p.checkbox-container {
   left: 110px;
 }
 
-.quiz-option {
-  padding: 5px 20px;
-}
 
 .question-options label {
   display:flex;
@@ -20,7 +17,7 @@ p.checkbox-container {
   font-size: 1em;
   color: white;
   background-color: var(--oscuro);
-  padding: 20px 50px;
+  padding: 5px 50px;
   border-radius: 50px;
   animation: entrada-derecha 1s ease-out;
 }
@@ -53,7 +50,6 @@ button[type="submit"]:active,
 
 .questionFt, .feedback{
   display:flex;
-  height:20vh;
   flex-direction: column;
   align-items:center;
 }
@@ -65,21 +61,20 @@ o dentro de feedback en el html principal
 */
 
 .main-button {
-  max-width: 70vw;
-  min-width: 60vh;
-  max-height: 5vh;
+  min-height: 5vh;
+  max-height: 10vh;
+  max-width:800px;
   flex: 1;
   color: var(--form-control-color);
   font-size: 2em;
-  padding: 1em 0.5em;
-  margin: 10px;
+  margin: 0.5em;
+  padding:0 2em;
   border-radius: 50px;
   background-color: var(--oscuro);
   display: flex;
   align-items: center;
-  justify-content: center; /* Para centrar horizontalmente el texto */
+  justify-content: center;
 }
-
 
 /*Clases que se aplican a los botones después de correr el checkAnswers sobre la pantalla de la pregunta.*/
 

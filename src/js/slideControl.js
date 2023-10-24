@@ -3,9 +3,7 @@
 
 // Función para avanzar al siguiente slide
 function nextSlide(currentArray, currentPosition, slider) {
-    console.log('nextslide \n currentArray.length = '+ currentArray.length);
-    console.log('currentPosition = '+ currentPosition);
-    console.log(currentPosition < currentArray.length - 1);
+    
     if (currentPosition < currentArray.length -1) {      
         let newPosition = currentPosition + 1;
         updateSlide(newPosition, currentArray, slider);
@@ -34,6 +32,11 @@ function prevSlide(currentArray, currentPosition, slider) {
 function updateSlide(newPosition, currentArray,slider) { 
     slider.style.transform = `translateX(-${newPosition * 100}%)`;
     console.log('updateSlide newPosition: '+newPosition);
+
+    let submitButtons = document.querySelectorAll('.submitButton');
+    submitButtons.forEach(button => {
+        button.style.visibility = 'visible';
+    });
 };
 
 let currentPosition = 0;
